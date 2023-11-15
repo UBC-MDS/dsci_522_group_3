@@ -1,3 +1,1 @@
-# dsci_522_group_3
-
-This is group 3.
+# dsci_522_group_3_financial-data
