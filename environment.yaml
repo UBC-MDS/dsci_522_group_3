@@ -72,4 +72,5 @@ dependencies:
       - urllib3==2.1.0
       - webencodings==0.5.1
       - yfinance==0.2.31
+      - matplotlib==3.7.2
 prefix: /Users/yanyi/miniconda3/envs/522Group3
