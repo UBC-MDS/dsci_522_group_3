@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
 # Predicting Direction of Stock Price from Interest Rate and Inflation Rate
 
 -   Authors: Allen Lee, Jianhao Zhang, Chengyu Tao, Yi Yan
