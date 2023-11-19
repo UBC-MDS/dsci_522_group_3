@@ -18,7 +18,7 @@ Inflation data is obtained from calculating the change of consumer price index (
 
 ## Report
 
-The final report can be found [here](https://ubc-mds.github.io/dsci_522_group_3/src/predicting_direction_of_stock_price_from_inflation_rate_and_interest_rate.html).
+The final report can be found [here](https://ubc-mds.github.io/stock_price_direction_prediction_from_interest_and_inflation_rate/src/predicting_direction_of_stock_price_from_inflation_rate_and_interest_rate.html).
 
 ## Usage
 
