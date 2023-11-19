@@ -7513,6 +7513,7 @@ a.anchor-link {
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Imports</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_validate</span>
@@ -7549,6 +7550,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">#import data and split into train and test</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"Data/Processed/data.csv"</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
 <span class="n">train_df</span><span class="p">,</span> <span class="n">test_df</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
 <span class="n">train_df</span>
 </pre></div>
@@ -7755,7 +7757,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=72d49bd7">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=92ea2ef0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7763,7 +7765,109 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>inflation_rate_pct</th>
+<th>interest_rate_pct</th>
+<th>inflation_rate_pct_chg</th>
+<th>interest_rate_pct_chg</th>
+<th>gspc_prev_year_pct_chg</th>
+</tr>
+<tr>
+<th>date</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>2013-04-30</th>
+<td>1.361965</td>
+<td>0.150</td>
+<td>-0.342289</td>
+<td>0.000</td>
+<td>14.282744</td>
+</tr>
+<tr>
+<th>1982-12-31</th>
+<td>3.711559</td>
+<td>8.830</td>
+<td>-4.679246</td>
+<td>-3.470</td>
+<td>14.761319</td>
+</tr>
+<tr>
+<th>1968-01-31</th>
+<td>3.951368</td>
+<td>4.630</td>
+<td>1.138868</td>
+<td>-0.370</td>
+<td>6.500401</td>
+</tr>
+<tr>
+<th>2005-04-30</th>
+<td>2.802750</td>
+<td>2.765</td>
+<td>-0.249021</td>
+<td>1.765</td>
+<td>4.474842</td>
+</tr>
+<tr>
+<th>1986-02-28</th>
+<td>2.255639</td>
+<td>7.830</td>
+<td>-1.448065</td>
+<td>-0.695</td>
+<td>25.245616</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c63b4879">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">y_train</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7776,33 +7880,13 @@ a.anchor-link {
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>461</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6c8766e6">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span><span class="o">-</span><span class="nb">sum</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>185</pre>
+<pre>date
+2013-04-30    True
+1982-12-31    True
+1968-01-31    True
+2005-04-30    True
+1986-02-28    True
+Name: target, dtype: bool</pre>
 </div>
 </div>
 </div>
@@ -7832,24 +7916,7 @@ a.anchor-link {
 <li>'interest_rate_pct_chg'</li>
 <li>'gspc_prev_year_pct_chg'</li>
 </ul>
-<p>No missing values, we don't need to do imputation. And we apply a StandardScaler.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a1fd9e88-4813-41c9-b36f-e1038c4effb9">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Create pipeline for numeric features </span>
-<span class="n">numeric_pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span>
-    <span class="n">StandardScaler</span><span class="p">()</span>
-<span class="p">)</span>
-</pre></div>
-</div>
+<p>Since there is no missing values, imputation is not necessary. And we apply a StandardScaler.</p>
 </div>
 </div>
 </div>
@@ -7867,25 +7934,14 @@ a.anchor-link {
 
 <span class="c1">#Create Column Transformer </span>
 <span class="n">preprocessor</span> <span class="o">=</span> <span class="n">make_column_transformer</span><span class="p">(</span>    
-    <span class="p">(</span><span class="n">numeric_pipe</span><span class="p">,</span> <span class="n">numerical_features</span><span class="p">),</span>  
+    <span class="p">(</span><span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">numerical_features</span><span class="p">),</span>  
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7c5f2860-b44e-44f7-8d5b-3a6424417bab">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Model-Selection">Model Selection<a class="anchor-link" href="#Model-Selection">¶</a></h4><h5 id="Logistic-Regression">Logistic Regression<a class="anchor-link" href="#Logistic-Regression">¶</a></h5><p>Our focus is on identifying whether there is an increase in the S&amp;P 500 index, making it a classification problem. To tackle this, we utilize Logistic Regression. Given the significant imbalance in classes and our emphasis on minimizing false negatives, particularly crucial in medical contexts where we want to reduce instances of patients missing vital treatment, we incorporate the <code>class_weight</code> argument. Experimenting with various values for <code>class_weight</code>, we find that a ratio of 1:2 provides a satisfactory balance between recall and precision for our objectives.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=296c9473-4a00-4a4c-9439-309559715fd9">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=eeb3c8de">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7893,37 +7949,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">preprocessor</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">}))</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=76c3fbd4-96cb-4ce7-9d55-e87da554125a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h5 id="Hyperparameter-Optimization">Hyperparameter Optimization<a class="anchor-link" href="#Hyperparameter-Optimization">¶</a></h5><p>To identify the optimal model and prevent underfitting or overfitting, we aim to enhance the hyperparameter C of the Logistic Regression through Gridsearch.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c027fe19-a85d-456a-b032-f7801001eea6">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create a grid search object to fine tune c</span>
-<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"logisticregression__C"</span><span class="p">:</span> <span class="mf">10.0</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-<span class="p">}</span>
-<span class="n">gs</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">return_train_score</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">gs</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">preprocessor</span>
 </pre></div>
 </div>
 </div>
@@ -7936,121 +7962,86 @@ a.anchor-link {
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<style>#sk-container-id-1 {color: black;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div class="sk-top-container" id="sk-container-id-1"><div class="sk-text-repr-fallback"><pre>GridSearchCV(estimator=Pipeline(steps=[('columntransformer',
-                                        ColumnTransformer(transformers=[('pipeline',
-                                                                         Pipeline(steps=[('standardscaler',
-                                                                                          StandardScaler())]),
-                                                                         ['inflation_rate_pct',
-                                                                          'interest_rate_pct',
-                                                                          'inflation_rate_pct_chg',
-                                                                          'interest_rate_pct_chg',
-                                                                          'gspc_prev_year_pct_chg'])])),
-                                       ('logisticregression',
-                                        LogisticRegression(class_weight={0: 2,
-                                                                         1: 1}))]),
-             n_jobs=-1,
-             param_grid={'logisticregression__C': array([1.e-04, 1.e-03, 1.e-02, 1.e-01, 1.e+00, 1.e+01, 1.e+02, 1.e+03,
-       1.e+04, 1.e+05])},
-             return_train_score=True)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br/>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-1">GridSearchCV</label><div class="sk-toggleable__content"><pre>GridSearchCV(estimator=Pipeline(steps=[('columntransformer',
-                                        ColumnTransformer(transformers=[('pipeline',
-                                                                         Pipeline(steps=[('standardscaler',
-                                                                                          StandardScaler())]),
-                                                                         ['inflation_rate_pct',
-                                                                          'interest_rate_pct',
-                                                                          'inflation_rate_pct_chg',
-                                                                          'interest_rate_pct_chg',
-                                                                          'gspc_prev_year_pct_chg'])])),
-                                       ('logisticregression',
-                                        LogisticRegression(class_weight={0: 2,
-                                                                         1: 1}))]),
-             n_jobs=-1,
-             param_grid={'logisticregression__C': array([1.e-04, 1.e-03, 1.e-02, 1.e-01, 1.e+00, 1.e+01, 1.e+02, 1.e+03,
-       1.e+04, 1.e+05])},
-             return_train_score=True)</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-2">estimator: Pipeline</label><div class="sk-toggleable__content"><pre>Pipeline(steps=[('columntransformer',
-                 ColumnTransformer(transformers=[('pipeline',
-                                                  Pipeline(steps=[('standardscaler',
-                                                                   StandardScaler())]),
+<style>#sk-container-id-1 {color: black;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div class="sk-top-container" id="sk-container-id-1"><div class="sk-text-repr-fallback"><pre>ColumnTransformer(transformers=[('standardscaler', StandardScaler(),
+                                 ['inflation_rate_pct', 'interest_rate_pct',
+                                  'inflation_rate_pct_chg',
+                                  'interest_rate_pct_chg',
+                                  'gspc_prev_year_pct_chg'])])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br/>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-1">ColumnTransformer</label><div class="sk-toggleable__content"><pre>ColumnTransformer(transformers=[('standardscaler', StandardScaler(),
+                                 ['inflation_rate_pct', 'interest_rate_pct',
+                                  'inflation_rate_pct_chg',
+                                  'interest_rate_pct_chg',
+                                  'gspc_prev_year_pct_chg'])])</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-2">standardscaler</label><div class="sk-toggleable__content"><pre>['inflation_rate_pct', 'interest_rate_pct', 'inflation_rate_pct_chg', 'interest_rate_pct_chg', 'gspc_prev_year_pct_chg']</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-3">StandardScaler</label><div class="sk-toggleable__content"><pre>StandardScaler()</pre></div></div></div></div></div></div></div></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7c5f2860-b44e-44f7-8d5b-3a6424417bab">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Model-Selection">Model Selection<a class="anchor-link" href="#Model-Selection">¶</a></h4><h5 id="Logistic-Regression">Logistic Regression<a class="anchor-link" href="#Logistic-Regression">¶</a></h5><p>Our focus is on identifying whether there is an increase in the S&amp;P 500 index, making it a classification problem. To tackle this, we utilize Logistic Regression.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=296c9473-4a00-4a4c-9439-309559715fd9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">preprocessor</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6b7fa478">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pipe</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<style>#sk-container-id-2 {color: black;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div class="sk-top-container" id="sk-container-id-2"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[('columntransformer',
+                 ColumnTransformer(transformers=[('standardscaler',
+                                                  StandardScaler(),
                                                   ['inflation_rate_pct',
                                                    'interest_rate_pct',
                                                    'inflation_rate_pct_chg',
                                                    'interest_rate_pct_chg',
                                                    'gspc_prev_year_pct_chg'])])),
-                ('logisticregression',
-                 LogisticRegression(class_weight={0: 2, 1: 1}))])</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-3">columntransformer: ColumnTransformer</label><div class="sk-toggleable__content"><pre>ColumnTransformer(transformers=[('pipeline',
-                                 Pipeline(steps=[('standardscaler',
-                                                  StandardScaler())]),
+                ('logisticregression', LogisticRegression())])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br/>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-4">Pipeline</label><div class="sk-toggleable__content"><pre>Pipeline(steps=[('columntransformer',
+                 ColumnTransformer(transformers=[('standardscaler',
+                                                  StandardScaler(),
+                                                  ['inflation_rate_pct',
+                                                   'interest_rate_pct',
+                                                   'inflation_rate_pct_chg',
+                                                   'interest_rate_pct_chg',
+                                                   'gspc_prev_year_pct_chg'])])),
+                ('logisticregression', LogisticRegression())])</pre></div></div></div><div class="sk-serial"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-5">columntransformer: ColumnTransformer</label><div class="sk-toggleable__content"><pre>ColumnTransformer(transformers=[('standardscaler', StandardScaler(),
                                  ['inflation_rate_pct', 'interest_rate_pct',
                                   'inflation_rate_pct_chg',
                                   'interest_rate_pct_chg',
-                                  'gspc_prev_year_pct_chg'])])</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-4">pipeline</label><div class="sk-toggleable__content"><pre>['inflation_rate_pct', 'interest_rate_pct', 'inflation_rate_pct_chg', 'interest_rate_pct_chg', 'gspc_prev_year_pct_chg']</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-5">StandardScaler</label><div class="sk-toggleable__content"><pre>StandardScaler()</pre></div></div></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-6">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression(class_weight={0: 2, 1: 1})</pre></div></div></div></div></div></div></div></div></div></div></div></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9bb7e18f-995e-4adb-accd-684fff65dbb9">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">gs_res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">gs</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)[[</span>
-    <span class="s1">'rank_test_score'</span><span class="p">,</span> <span class="s1">'param_logisticregression__C'</span><span class="p">,</span> 
-    <span class="s1">'mean_train_score'</span><span class="p">,</span> <span class="s1">'std_train_score'</span><span class="p">,</span> <span class="s1">'mean_test_score'</span><span class="p">,</span> <span class="s1">'std_test_score'</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'rank_test_score'</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=02474ea3-8d68-4b1a-8658-a63dbade2b9e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">gs</span><span class="o">.</span><span class="n">best_params_</span> <span class="c1">#value for C: 1000</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>{'logisticregression__C': 0.01}</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=1d86088d-29b6-4683-a698-36b88af4dc22">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">gs</span><span class="o">.</span><span class="n">best_score_</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>0.7182707215265355</pre>
+                                  'gspc_prev_year_pct_chg'])])</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-6">standardscaler</label><div class="sk-toggleable__content"><pre>['inflation_rate_pct', 'interest_rate_pct', 'inflation_rate_pct_chg', 'interest_rate_pct_chg', 'gspc_prev_year_pct_chg']</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-7">StandardScaler</label><div class="sk-toggleable__content"><pre>StandardScaler()</pre></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-8" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-8">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression()</pre></div></div></div></div></div></div></div>
 </div>
 </div>
 </div>
@@ -8066,6 +8057,52 @@ a.anchor-link {
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=44b0f30c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<style>#sk-container-id-3 {color: black;}#sk-container-id-3 pre{padding: 0;}#sk-container-id-3 div.sk-toggleable {background-color: white;}#sk-container-id-3 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-3 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-3 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-3 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-3 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-3 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-3 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-3 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-3 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-3 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-3 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-3 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-3 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-3 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-3 div.sk-item {position: relative;z-index: 1;}#sk-container-id-3 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-3 div.sk-item::before, #sk-container-id-3 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-3 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-3 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-3 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-3 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-3 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-3 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-3 div.sk-label-container {text-align: center;}#sk-container-id-3 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-3 div.sk-text-repr-fallback {display: none;}</style><div class="sk-top-container" id="sk-container-id-3"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[('columntransformer',
+                 ColumnTransformer(transformers=[('standardscaler',
+                                                  StandardScaler(),
+                                                  ['inflation_rate_pct',
+                                                   'interest_rate_pct',
+                                                   'inflation_rate_pct_chg',
+                                                   'interest_rate_pct_chg',
+                                                   'gspc_prev_year_pct_chg'])])),
+                ('logisticregression', LogisticRegression())])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br/>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-9" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-9">Pipeline</label><div class="sk-toggleable__content"><pre>Pipeline(steps=[('columntransformer',
+                 ColumnTransformer(transformers=[('standardscaler',
+                                                  StandardScaler(),
+                                                  ['inflation_rate_pct',
+                                                   'interest_rate_pct',
+                                                   'inflation_rate_pct_chg',
+                                                   'interest_rate_pct_chg',
+                                                   'gspc_prev_year_pct_chg'])])),
+                ('logisticregression', LogisticRegression())])</pre></div></div></div><div class="sk-serial"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-10" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-10">columntransformer: ColumnTransformer</label><div class="sk-toggleable__content"><pre>ColumnTransformer(transformers=[('standardscaler', StandardScaler(),
+                                 ['inflation_rate_pct', 'interest_rate_pct',
+                                  'inflation_rate_pct_chg',
+                                  'interest_rate_pct_chg',
+                                  'gspc_prev_year_pct_chg'])])</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-11" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-11">standardscaler</label><div class="sk-toggleable__content"><pre>['inflation_rate_pct', 'interest_rate_pct', 'inflation_rate_pct_chg', 'interest_rate_pct_chg', 'gspc_prev_year_pct_chg']</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-12" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-12">StandardScaler</label><div class="sk-toggleable__content"><pre>StandardScaler()</pre></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-13" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-13">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression()</pre></div></div></div></div></div></div></div>
+</div>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8c6889e6-00a5-478e-8bb6-94800665aafb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8074,7 +8111,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">gs</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pipe</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8087,7 +8124,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>0.7345679012345679</pre>
+<pre>0.7530864197530864</pre>
 </div>
 </div>
 </div>
@@ -8099,22 +8136,32 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The test data yields an accuracy of 73.4%. Accuracy is a metric calculated as the ratio of correct predictions to all predictions. This means that in 73.4% of our test instances, the target is predicted correctly, which appears satisfactory. Nevertheless, as previously noted, caution is necessary when interpreting this metric, particularly in the context of class imbalance.</p>
+<p>The test data of logistic regression yields an accuracy of 75.3%. Accuracy is a metric calculated as the ratio of correct predictions to all predictions. Nevertheless, caution is necessary when interpreting this metric, particularly in the context of class imbalance.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d1498a97-0f7e-4a2b-81fc-8319a0d9c370">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6296b640">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h5 id="Visualization-of-Confusion-Matrix">Visualization of Confusion Matrix<a class="anchor-link" href="#Visualization-of-Confusion-Matrix">¶</a></h5>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=fdf037a7-d345-43ff-a153-a9944cea8caa">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c9041567">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h5 id="Dummy-Regression">Dummy Regression<a class="anchor-link" href="#Dummy-Regression">¶</a></h5>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=140c2fb7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8122,13 +8169,10 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Create a Confusion Matrix</span>
-<span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_predictions</span><span class="p">(</span>
-    <span class="n">y_test</span><span class="p">,</span>  <span class="c1"># true class labels</span>
-    <span class="n">gs</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span>  <span class="c1"># predicted class labels</span>
-<span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Figure 1: Confusion Matrix LogR on Test Data'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.dummy</span> <span class="kn">import</span> <span class="n">DummyClassifier</span>
+
+<span class="n">dc</span> <span class="o">=</span> <span class="n">DummyClassifier</span><span class="p">()</span>
+<span class="n">dc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8138,15 +8182,15 @@ a.anchor-link {
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAhUAAAHFCAYAAABFMgvMAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjguMCwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy81sbWrAAAACXBIWXMAAA9hAAAPYQGoP6dpAABNi0lEQVR4nO3deVxU1fsH8M9lG/ZVFlFERBRNXDHUSjC33HLJ1NCfG5apRWQuGamYCS5pbrmkieRu30pL07Q0y9QCyg35miYipiQZCiLbMOf3BzFfR0AH5gBOfN6v133VvffcO88dxuHhOefcqwghBIiIiIgMZFLTARAREdG/A5MKIiIikoJJBREREUnBpIKIiIikYFJBREREUjCpICIiIimYVBAREZEUTCqIiIhICiYVREREJAWTCj1s3LgRiqKUuUyZMgWXL1+GoijYuHFjTYdaKdnZ2Zg2bRp69OgBV1dXKIqCqKgoKefWaDTYtGkTunXrhjp16sDc3Bxubm7o27cvvvzyS2g0GimvU54VK1agcePGsLCwgKIouHXrltTzl3w2Ll++LPW8+ggJCYGiKGjUqBHKujHu999/r/2cVuazee3aNURFReHkyZMVOm706NFo2LBhhV+vPCEhIWjRooW08+mj5N90yWJiYgInJyd07doVBw4cqNZYHqS876X7l++++87g17p79y6ioqL0Ptf976G5uTlcXFzQvn17vP7660hKSqq2WKj6mNV0AMYkNjYW/v7+Ots8PT3h7u6O48ePw9fXt4YiM8zNmzfx4YcfolWrVhgwYADWr18v5bx5eXkYMGAADhw4gGHDhmH16tXw8PBARkYG9u/fj+effx47duxA//79pbze/U6ePInw8HCMGzcOo0aNgpmZGezs7KS+Rp8+fXD8+HHUrVtX6nn1ZWdnh5SUFBw6dAhdu3bV2bdhwwbY29sjKyurUue+du0a5syZg4YNG6J169Z6Hzdz5ky89tprlXrNR82rr76K0NBQFBUV4b///S/mzJmD3r1749ChQ+jcuXNNh4fjx4/rrM+dOxeHDx/GoUOHdLY3b97c4Ne6e/cu5syZA6A40dNXyXuo0Whw69Yt/Prrr9iwYQNWrFiBmJgYTJ06tdpioarHpKICWrRogcDAwDL3dejQoZqjKXb37l1YW1sbdA5vb29kZmZCURT89ddf0pKKyZMn4+uv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+vrC19dXZ/xQVUhNTYVKpYKzszMAYMmSJZgwYQKCgoLw6aef4sSJE4iPj8czzzyj9/sg6/NNlcPZH1XAyckJiqKUOZYhPT1dZ73kF8r9A/Me9KV1/y+LOnXqQFEU/PDDD9ovonuVta2qdenSBebm5ti1axdefvnlh7Z3cXHB9evXS22/du0agOJrlMXS0rLMgZB//fWXzuuYmZlh8uTJmDx5Mm7duoVvvvkGb731Fnr27Im0tLQyZ92U/GIo71pkXsf9xowZg7fffhuKomDUqFHlttu8eTNGjhyJ6Ohone1//fUXHB0d9X69ig7uXb9+Pfbu3YvHH38cK1euxNChQxEUFFShc5Tl3ve8fv36Ovvufc9L2pX377Ks6kP9+vW1fzw88cQT8PDwwIgRIzB79uxSA0/Liqu6PtPlqVOnDlxcXLRjEO537xTrp556Ck899RSKioqQkJCAFStWICIiAu7u7mUO+DXUH3/8gcTERAQHB2srvps3b0ZISAhWr16t0zY7O1vv88r6fFPlsFJRBWxsbBAYGIhdu3ahoKBAu/3OnTvYs2ePTlt3d3dYWlri9OnTOtt3796t9+v17dsXQgj88ccfpSopgYGBCAgIMOyCKsHDwwPjxo3D119/jY8//rjMNr///rv2urt27Ypz587hl19+0Wnz8ccfQ1EUdOnSRVpsDRs2LPV+//bbbw8cxOXo6IjBgwdj0qRJ+Pvvv8u92VXHjh1hZWWFzZs362y/evVqmfeSkGnUqFHo168fpk6dinr16pXbTlGUUonm3r178ccff+hsk1n9OXPmDMLDwzFy5Ej88MMPaNmyJYYOHYrMzEyDz/30008DQKn3PD4+HsnJydr3PCgoCCqVCjt27NBpd+LECb27GIYPH46QkBCsW7fuocd07doVhw4d0iYRJT7++GNYW1tXy7TPvn374ubNmygqKirzu6Fp06aljjE1NUVQUBA++OADAND+m5T5ecjNzcW4ceOgVqsxbdo07fayPpunT58u1VX0oFj0/XxT1WClooq888476NOnD3r27InXXnsNRUVFWLRoEWxtbbUjnAFox0Js2LABvr6+aNWqFX7++Wds3bpV79d64okn8NJLL2HMmDFISEhA586dYWNjg+vXr+Po0aMICAjAhAkTHniOffv2IScnR/sXwblz5/Cf//wHQPG88pK/yj/++GOM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"/>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<style>#sk-container-id-4 {color: black;}#sk-container-id-4 pre{padding: 0;}#sk-container-id-4 div.sk-toggleable {background-color: white;}#sk-container-id-4 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-4 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-4 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-4 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-4 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-4 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-4 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-4 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-4 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-4 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-4 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-4 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-4 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-4 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-4 div.sk-item {position: relative;z-index: 1;}#sk-container-id-4 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-4 div.sk-item::before, #sk-container-id-4 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-4 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-4 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-4 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-4 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-4 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-4 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-4 div.sk-label-container {text-align: center;}#sk-container-id-4 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-4 div.sk-text-repr-fallback {display: none;}</style><div class="sk-top-container" id="sk-container-id-4"><div class="sk-text-repr-fallback"><pre>DummyClassifier()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br/>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input checked="" class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-14" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-14">DummyClassifier</label><div class="sk-toggleable__content"><pre>DummyClassifier()</pre></div></div></div></div></div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f7163e82-862b-4fc8-983d-99cdda904619">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=466a5b1c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8154,12 +8198,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Classification report for Test Data</span>
-<span class="nb">print</span><span class="p">(</span>
-    <span class="n">classification_report</span><span class="p">(</span>
-        <span class="n">y_test</span><span class="p">,</span> <span class="n">gs</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-    <span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">dc</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8169,32 +8208,32 @@ a.anchor-link {
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Table 2: Classification Report for Test Data
-              precision    recall  f1-score   support
-
-       False       0.43      0.31      0.36        39
-        True       0.80      0.87      0.83       123
-
-    accuracy                           0.73       162
-   macro avg       0.61      0.59      0.60       162
-weighted avg       0.71      0.73      0.72       162
-
-</pre>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>0.7592592592592593</pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=820c7415-7910-434b-bee7-1518e2de7031">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2b08a15f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The visual representation and the classification report indicate a notably high recall score of 0.87, which is favorable in our context. Conversely, the precision score, standing at 0.80, is also desirable for our scenario. With an accuracy value of 0.73, the overall performance seems acceptable.</p>
+<p>The test data of dummy regression yields an accuracy of 75.9%. The accuracy of dummy regression is better then the accuracy of logistic regression.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2ba00838">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 </div>
 </div>
 </div>
@@ -8205,7 +8244,7 @@ weighted avg       0.71      0.73      0.72       162
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">¶</a></h4><p>In the preceding examination, we utilize <code>Logistic Regression</code>. It's crucial to highlight that the models exhibit suboptimal performance in terms of accuracy scores. Consequently, it becomes essential for future analyses to thoroughly investigate the individual features, scrutinizing their impact on predictions, or to undertake further data preprocessing to enhance the overall effectiveness of the model.</p>
+<h4 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">¶</a></h4><p>In the preceding examination, we utilize <code>Logistic Regression</code> and <code>Dummy Regression</code>. Consequently, the result is not promising. Further data preprocessing is needed to enhance the overall effectiveness of the model.</p>
 </div>
 </div>
 </div>
