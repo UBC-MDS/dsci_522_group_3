@@ -12,8 +12,8 @@ A demo of a data analysis project for DSCI 522 (Data Science workflows);
 a course in the Master of Data Science program at the University of
 British Columbia.
 
-[![Photo by Alexander Schimmeck on
-Unsplash](images/alexander-schimmeck-WhBMPxr2RhA-unsplash (1).jpg)](https://unsplash.com/photos/10-10-and-10-us-dollar-bill-WhBMPxr2RhA)
+![Photo by Alexander Schimmeck on
+Unsplash](images/img.jpg)
 
 ## About
 
