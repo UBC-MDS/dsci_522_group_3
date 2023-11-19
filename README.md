@@ -54,10 +54,4 @@ Copyright (c) 2023 Master of Data Science at the University of British Columbia.
 
 ## References
 
-::: {#refs .references .hanging-indent}
-<div>
-
 Yahoo!. S&P 500 (\^GSPC) charts, Data & News. Yahoo! Finance. <https://ca.finance.yahoo.com/quote/%5EGSPC?p=%5EGSPC&.tsrc=fin-srch>
-
-</div>
-:::
