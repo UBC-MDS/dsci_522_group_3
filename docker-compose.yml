@@ -1,0 +1,7 @@
+services:
+  t1:
+    image: predicting_direction_of_stock_price_from_inflation_rate_and_interest_rate_env
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/home/jovyan
