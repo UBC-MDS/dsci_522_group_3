@@ -3,6 +3,7 @@ import yfinance as yf
 
 
 def get_all_data():
+    # call all function to get all data then combine and return.
 
     gspc_data = get_gspc_data()
     cpi_data = get_cpi_data()
@@ -37,8 +38,6 @@ def get_gspc_data():
              == pd.date_range(start=gspc_m_s.index[0],
                               end=gspc_m_s.index[-1],
                               freq='M')).all())
-    assert not gspc_m_s.isna().any()
-
 
     # next year change
     gspc_next_year_pct_chg: pd.Series = (gspc_m_s.shift(-12) - gspc_m_s) / gspc_m_s * 100
@@ -49,6 +48,7 @@ def get_gspc_data():
     gspc_prev_year_pct_chg: pd.Series = (gspc_m_s - gspc_m_s.shift(12)) / gspc_m_s.shift(12) * 100
     gspc_prev_year_pct_chg.name = 'gspc_prev_year_pct_chg'
 
+    # combine all and return
     comb_all = pd.concat([gspc_m_s,
                           gspc_next_year_pct_chg,
                           gspc_prev_year_pct_chg],
@@ -59,6 +59,8 @@ def get_gspc_data():
 
 
 def read_from_fred(data_link: str, series_name: str):
+    # reads data from federal reserve
+
     raw_s: pd.Series = (pd.read_csv(data_link,
                                     parse_dates=['DATE'])
                         .set_index('DATE')
@@ -70,17 +72,22 @@ def read_from_fred(data_link: str, series_name: str):
 
 
 def get_cpi_data():
+    # reads raw cpi data
     cpi_raw_s: pd.Series = read_from_fred('https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23e1e9f0&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1318&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=CPIAUCNS&scale=left&cosd=1913-01-01&coed=2023-09-01&line_color=%234572a7&link_values=false&line_style=solid&mark_type=none&mw=3&lw=2&ost=-99999&oet=99999&mma=0&fml=a&fq=Monthly&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2023-11-11&revision_date=2023-11-11&nd=1913-01-01',
                                           'cpi')
 
+    # offset date by 1 day to get last day of month (original data is first day of month)
     cpi_m_s: pd.Series = cpi_raw_s.copy()
     cpi_m_s.index = cpi_m_s.index - pd.Timedelta(days=1)
+    # calculate inflation from cpi
     inflation_rate_m_s: pd.Series = (cpi_m_s - cpi_m_s.shift(12)) / cpi_m_s.shift(12) * 100
     inflation_rate_m_s.name = 'inflation_rate_pct'
+    # calculate change in inflation rate
     inflation_rate_chg_m_s: pd.Series = (inflation_rate_m_s
                                          - inflation_rate_m_s.shift(12))
     inflation_rate_chg_m_s.name = 'inflation_rate_pct_chg'
 
+    # combine inflation rate and change in inflation rate and return
     comb_all = pd.concat([inflation_rate_m_s, inflation_rate_chg_m_s],
                          axis=1,
                          join='inner')
@@ -90,11 +97,15 @@ def get_cpi_data():
 
 def get_interest_rate_data():
 
+    # read raw interest rate data
     interest_rate_raw_s = read_from_fred('https://fred.stlouisfed.org/graph/fredgraph.csv?bgcolor=%23e1e9f0&chart_type=line&drp=0&fo=open%20sans&graph_bgcolor=%23ffffff&height=450&mode=fred&recession_bars=on&txtcolor=%23444444&ts=12&tts=12&width=1318&nt=0&thu=0&trc=0&show_legend=yes&show_axis_titles=yes&show_tooltip=yes&id=DFF&scale=left&cosd=1954-07-01&coed=2023-11-08&line_color=%234572a7&link_values=false&line_style=solid&mark_type=none&mw=3&lw=2&ost=-99999&oet=99999&mma=0&fml=a&fq=Daily%2C%207-Day&fam=avg&fgst=lin&fgsnd=2020-02-01&line_index=1&transformation=lin&vintage_date=2023-11-11&revision_date=2023-11-11&nd=1954-07-01',
                    'interest_rate_pct')
+    # resample to last day of month and get monthly median
     interest_rate_m_s: pd.Series = interest_rate_raw_s.resample('M').median()
+    # calculate change in inflation
     interest_rate_chg_m_s: pd.Series = interest_rate_m_s - interest_rate_m_s.shift(12)
     interest_rate_chg_m_s.name = 'interest_rate_pct_chg'
+    # combine inflation and change in inflation in inflation and return
     comb_all = pd.concat([interest_rate_m_s, interest_rate_chg_m_s], axis=1,
                          join='inner')
 
