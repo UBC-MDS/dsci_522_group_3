@@ -37,5 +37,5 @@ def test_split_ratio():
     assert len(X_test) / len(data) == 0.2
 
 
-test_output_type()
-test_split_ratio()
+# test_output_type()
+# test_split_ratio()
