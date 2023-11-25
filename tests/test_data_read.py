@@ -47,3 +47,33 @@ def test_read_data():
     assert not all_dat.isna().any(axis=None)
 
     return
+
+
+#sample data for testing median
+
+# df
+
+
+def test_median_data():
+
+    test_data = {
+        'date': pd.date_range(start='2023-05-01', end='2023-05-31', freq='D'),
+        'value': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+    }
+    #test_data
+    df = pd.DataFrame(test_data)
+    df.set_index('date', inplace=True)
+
+    resampled_data = src.data_read.resample_m_median(df)
+    # Check if the returned object is a pandas DataFrame or Series
+    assert isinstance(resampled_data, (pd.DataFrame, pd.Series))
+
+    # Check if the resampled data has the correct number of rows (assuming a monthly frequency)
+    expected_rows = 1
+    assert len(resampled_data) == expected_rows
+
+    # Check if the resampled data has the correct median values
+    expected_medians = 16 
+    assert resampled_data['value'].tolist()[0] == expected_medians
+
+#test_median_data()
