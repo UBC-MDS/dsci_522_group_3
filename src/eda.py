@@ -7,6 +7,7 @@ import pandas as pd
 import numpy as np
 
 
+
 def plot_histograms(train_df, col, features):
     """
     Plot histograms for specified features based on the target variable.
@@ -19,30 +20,41 @@ def plot_histograms(train_df, col, features):
     Returns:
     None
     """
+    fig=plt.figure()
     for feat in features:
         train_df.groupby(col)[feat].plot.hist(bins=50, alpha=0.5, legend=True, density=True, title="Histogram of " + feat)
         plt.xlabel(feat)
-        plt.show()
+        
+    return fig
 
-# # Test Example:
-# # Assuming 'target' is the name of your target variable
-# # Create a dummy DataFrame for testing
-# data = {'target': np.random.choice([0, 1], size=100),
-#         'inflation_rate_pct': np.random.randn(100),
-#         'interest_rate_pct': np.random.randn(100),
-#         'inflation_rate_pct_chg': np.random.randn(100),
-#         'interest_rate_pct_chg': np.random.randn(100),
-#         'gspc_prev_year_pct_chg': np.random.randn(100)}
 
-# test_df = pd.DataFrame(data)
 
-# # Call the function with the test DataFrame
-# plot_histograms(test_df, 'target', features)
 
-# # Example of using assert for testing
-# assert isinstance(test_df, pd.DataFrame), "Input should be a DataFrame"
-# print("Test passed!")
 
+# def plot_histograms(train_df, col, features):
+#     """
+#     Plot histograms for specified features based on the grouping variable.
+
+#     Parameters:
+#     - train_df (pd.DataFrame): The DataFrame containing the data.
+#     - col (str): The name of the grouping variable.
+#     - features (list): List of feature names to plot.
+
+#     Returns:
+#     - fig (matplotlib.figure.Figure): The matplotlib Figure object.
+#     """
+#     fig, axes = plt.subplots(nrows=len(features), ncols=1, figsize=(8, 6*len(features)))
+
+#     for i, feat in enumerate(features):
+#         for group_name, group_data in train_df.groupby(col):
+#             group_data[feat].plot.hist(bins=50, alpha=0.5, ax=axes[i], legend=True, density=True, title=f"Histogram of {feat} - Grouped by {col}")
+        
+#         axes[i].set_xlabel(feat)
+#         axes[i].legend(title=col)
+
+#     plt.tight_layout()
+
+#     return fig
 
 
 
@@ -61,22 +73,15 @@ def scatter_plot(train_df, x_feature, y_feature, color='blue'):
     Returns:
     None
     """
+    fig=plt.figure()
     plt.figure(figsize=(8, 8))
     plt.scatter(train_df[x_feature], train_df[y_feature], s=20, c=color, alpha=0.7)
     plt.title(f'Scatter Plot of {x_feature} vs {y_feature}')
     plt.xlabel(f'{x_feature} (%)')
     plt.ylabel(f'{y_feature} (%)')
-    plt.show()
+    
 
-# # Assert test for the function
-# # Assuming 'train_df' is the name of your DataFrame
-# assert isinstance(train_df, pd.DataFrame), "Input should be a DataFrame"
-
-# # Example usage:
-# scatter_plot(train_df, 'interest_rate_pct', 'inflation_rate_pct', color='blue')
-# scatter_plot(train_df, 'interest_rate_pct_chg', 'inflation_rate_pct_chg', color='green')
-# scatter_plot(train_df, 'inflation_rate_pct_chg', 'inflation_rate_pct', color='red')
-# scatter_plot(train_df, 'interest_rate_pct_chg', 'interest_rate_pct', color='blue')
+    return fig
 
 
 
