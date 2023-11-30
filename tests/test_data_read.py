@@ -4,10 +4,26 @@ import pandas as pd
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 import src.data_read
+import src.data_clean
+import src.fea_extract
+
+
+def get_all_data():
+    src.data_read.main('data/gspc_raw_tmp',
+                       'data/cpi_raw_tmp',
+                       'data/interest_raw_tmp')
+
+    src.data_clean.main('data/gspc_raw_tmp',
+                        'data/cpi_raw_tmp',
+                        'data/interest_raw_tmp',
+                        'data/clean_tmp')
+
+    src.data_extract.main('data/clean_tmp',
+                          'data/final_tmp')
 
 def test_read_data():
 
-    all_dat = src.data_read.get_all_data()
+    all_dat = get_all_data()
 
     # check is a dataframe
     assert isinstance(all_dat, pd.DataFrame)
