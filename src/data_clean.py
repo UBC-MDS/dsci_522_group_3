@@ -1,5 +1,6 @@
 import pandas as pd
 import click
+import os
 
 
 def resample_m_median(raw_data):
@@ -81,6 +82,14 @@ def main_inner(gspc_raw_path,
     resamples interest rate data with monthly media to last day of month
     this function is for call tests or other functions
     """
+
+    if not os.path.exists("data"):
+        # If not, create the folder
+        os.makedirs("data")
+
+    if not os.path.exists("data/processed"):
+        # If not, create the folder
+        os.makedirs("data/processed")
 
     gspc = pd.read_csv(gspc_raw_path, index_col=0, parse_dates=True).squeeze()
     cpi = pd.read_csv(cpi_raw_path, index_col=0, parse_dates=True).squeeze()

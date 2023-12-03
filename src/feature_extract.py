@@ -1,5 +1,6 @@
 import pandas as pd
 import click
+import os
 
 
 def gspc_extract(data):
@@ -75,6 +76,14 @@ def main_inner(data_path, out_path):
     reads cleaned data and extract features for s&p500, cpi and interest rate
     for call from test or other functions.
     """
+
+    if not os.path.exists("data"):
+        # If not, create the folder
+        os.makedirs("data")
+    
+    if not os.path.exists("data/processed"):
+        # If not, create the folder
+        os.makedirs("data/processed")
 
     data = pd.read_csv(data_path, index_col=0, parse_dates=True)
 

@@ -1,6 +1,7 @@
 import pandas as pd
 import yfinance as yf
 import click
+import os
 
 
 @click.command()
@@ -37,6 +38,15 @@ def main_inner(price_name,
                gspc_out_path,
                cpi_out_path,
                interest_out_path):
+
+    # Check if the folder exists
+    if not os.path.exists("data"):
+        # If not, create the folder
+        os.makedirs("data")
+
+    if not os.path.exists("data/raw"):
+        # If not, create the folder
+        os.makedirs("data/raw")
 
     """
     read price, CPI and interest rate raw data and store them as
