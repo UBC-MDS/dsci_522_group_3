@@ -27,6 +27,18 @@ python src/train_test_split_class.py \
   --x_test_path='data/processed/x_test.csv' \
   --y_test_path='data/processed/y_test.csv'
 
+
+
+python src/eda.py \
+  --processed_data_path='data/processed/processed_data.csv'\
+  --x_train_path='data/processed/x_train.csv'\
+  --y_train_path='data/processed/y_train.csv'\
+  --time_path='results/figures/time.png'\
+  --hist_path='results/figures/hist.png'\
+  --scat_path='results/figures/scat.png'
+
+
+
 python src/classification.py \
   --x_train_path='data/processed/x_train.csv' \
   --y_train_path='data/processed/y_train.csv' \
