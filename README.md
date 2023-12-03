@@ -97,6 +97,7 @@ docker compose up jupyter-lab
 
     # renter HTML report 
     jupyter-book build report
+    cp -r report/_build/html/* docs
     ```
 
 #### Clean up
