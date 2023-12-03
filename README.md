@@ -12,7 +12,7 @@ During the COVID-19 pandemic, central banks around the world lowered interest ra
 
 ## Report
 
-The final report can be found [here](https://ubc-mds.github.io/stock_price_direction_prediction_from_interest_and_inflation_rate/src/predicting_direction_of_stock_price_from_inflation_rate_and_interest_rate.html).
+The final report can be found [here](https://ubc-mds.github.io/stock_price_direction_prediction_from_interest_and_inflation_rate/report/_build/html/index.html).
 
 ## Dependencies
 
