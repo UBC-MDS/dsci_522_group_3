@@ -3,6 +3,7 @@
 # https://github.com/ttimbers/demo-tests-ds-analysis-r/blob/main/R/count_classes.R
 
 import pandas as pd
+import click
 from sklearn.model_selection import train_test_split
 
 def train_test_split_class(prepared_data_frame, target_col, test_data_ratio, random_state = None, shuffle = True):
@@ -59,3 +60,37 @@ def train_test_split_class(prepared_data_frame, target_col, test_data_ratio, ran
     y_test = test_df[target_col]
 
     return X_train, y_train, X_test, y_test
+
+
+@click.command()
+@click.option('--processed_data_path', type=str)
+@click.option('--random_state', type=int)
+@click.option('--test_data_ratio', type=float)
+@click.option('--x_train_path', type=str)
+@click.option('--y_train_path', type=str)
+@click.option('--x_test_path', type=str)
+@click.option('--y_test_path', type=str)
+def main(processed_data_path,
+         random_state,
+         test_data_ratio,
+         x_train_path,
+         y_train_path,
+         x_test_path,
+         y_test_path):
+    df = pd.read_csv(processed_data_path,
+                     index_col=0,
+                     parse_dates=True)
+    X_train, y_train, X_test, y_test = train_test_split_class(df,
+                                                              'target',
+                                                              test_data_ratio,
+                                                              random_state)
+    X_train.to_csv(x_train_path)
+    y_train.to_csv(y_train_path)
+    X_test.to_csv(x_test_path)
+    y_test.to_csv(y_test_path)
+
+    return
+
+if __name__ == '__main__':
+    main()
+
