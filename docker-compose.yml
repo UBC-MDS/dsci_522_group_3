@@ -1,6 +1,6 @@
 services:
   t1:
-    image: lilytao0531/predicting_direction_of_stock_price_from_inflation_rate_and_interest_rate_env:afc0cfd
+    image: lilytao0531/predicting_direction_of_stock_price_from_inflation_rate_and_interest_rate_env:7ee6962
     ports:
       - "8888:8888"
     volumes:
