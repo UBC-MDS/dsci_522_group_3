@@ -26,3 +26,10 @@ python src/train_test_split_class.py \
   --y_train_path='data/processed/y_train.csv' \
   --x_test_path='data/processed/x_test.csv' \
   --y_test_path='data/processed/y_test.csv'
+
+python src/train_test_split_class.py \
+  --x_train_path='data/processed/x_train.csv' \
+  --y_train_path='data/processed/y_train.csv' \
+  --x_test_path='data/processed/x_test.csv' \
+  --y_test_path='data/processed/y_test.csv' \
+  --out_path='result/tables/mdl_result.csv'
