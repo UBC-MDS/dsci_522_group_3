@@ -4,9 +4,9 @@ RUN conda install -y -c conda-forge pandas=2.1.3 \
  numpy=1.26.0 \
  altair=5.1.2 \
  matplotlib=3.8.2 \
- scikit-learn=1.3.2 \
+ scikit-learn=1.3.2
 
- RUN conda install -y -c conda-forge jupyterbook=0.15.1
+RUN conda install -y -c conda-forge jupyterbook=0.15.1
 
 RUN conda install -y -c anaconda pytest=7.4.0 \
   click=8.1.7
