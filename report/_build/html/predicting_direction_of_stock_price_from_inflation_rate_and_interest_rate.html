@@ -1,0 +1,703 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Predicting direction of stock price from interest rate and inflation rate &#8212; Predicting direction of stock price from interest rate and inflation rate</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'predicting_direction_of_stock_price_from_inflation_rate_and_interest_rate';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Predicting direction of stock price from interest rate and inflation rate</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Predicting direction of stock price from interest rate and inflation rate
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/predicting_direction_of_stock_price_from_inflation_rate_and_interest_rate.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Predicting direction of stock price from interest rate and inflation rate</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-results">Methods &amp; Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#raw">Raw</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#derived">Derived</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remarks">Remarks</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#resampling">Resampling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-data-from-web">Read Data From Web</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#columns">columns</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">EDA</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-plot-of-all-variables">Time series plot of all variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#split-data-and-eda">Split data and EDA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model">Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-data">Preprocessing Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-features">Numeric features:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-selection">Model Selection</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression">Logistic Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#dummy-regression">Dummy Regression</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="predicting-direction-of-stock-price-from-interest-rate-and-inflation-rate">
+<h1>Predicting direction of stock price from interest rate and inflation rate<a class="headerlink" href="#predicting-direction-of-stock-price-from-interest-rate-and-inflation-rate" title="Permalink to this heading">#</a></h1>
+<p><em>We utilized logistic regression to analyze the stock price data and provided a predictive model.</em></p>
+<p>by Allan Lee, Jianhao Zhang, Yi Yan and Chengyu Tao (DSCI 522 Group 3 Milestone 3)</p>
+<p>2023/12/02</p>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>During the COVID-19 pandemic, central banks around the world lowered interest rates to ease economical challenges posed by the pandemic. As the pandemic ease, the lowered interest rate leads to excess consumer spending which increased the inflation rate to unacceptable levels. In order to control the inflation and have it return to pre-pandemic levels, the central bank raised the interest rate sharply to the highest level in 15 years. Nowadays, inflation and interest rate often takes the headline of financial news and with more than 50% of American households owning stocks <span id="id1">[]</span>, our team is curious to find out how inflation and interest rate affect stock returns. We ask the question: given inflation rate and interest rate data, can we predict whether we will profit if we invest in a stock market index and hold for 1 year.</p>
+</section>
+<section id="methods-results">
+<h2>Methods &amp; Results<a class="headerlink" href="#methods-results" title="Permalink to this heading">#</a></h2>
+<section id="data">
+<h3>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h3>
+<section id="raw">
+<h4>Raw<a class="headerlink" href="#raw" title="Permalink to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>We decided to use the Standard &amp; Poors 500 Index (S&amp;P500) as stock market proxy. The index tracks stocks of 500 largest companies in USA. The price of S&amp;P500 is obtained from Yahoo Finance <span id="id2">[]</span>.</p></li>
+<li><p>Inflation data is obtained from calculating the change of consumer price index (CPI) <span id="id3">[]</span>. We obtained United States CPI from the Federal Reserve Economic Data website and computed yearly inflation rate.</p></li>
+<li><p>We can use the Federal funds rate as proxy for interest rate. It is the target interest rate set by the Federal reserve for commercial banks to lend and borrow overnight. We obtained the Federal funds rate from the Federal Reserve Economic Data website.</p></li>
+</ol>
+</section>
+<section id="derived">
+<h4>Derived<a class="headerlink" href="#derived" title="Permalink to this heading">#</a></h4>
+<p>We derived the change in inflation rate and change in interest rate from the data we have as additional feature. We often hear on the news that inflation and interest rate are increasing or decreasing thus we thought these 2 features might provide additional predicting power for our model</p>
+</section>
+<section id="analysis">
+<h4>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading">#</a></h4>
+<p>The Python programming language <span id="id4">[]</span> and the following Python packages were used to perform the analysis:  Numpy <span id="id5">[]</span>, Pandas <span id="id6">[]</span>, Altair <span id="id7">[]</span>, Scikit-learn <span id="id8">[]</span>. The code used to perform the EDA and create the report which can be found here: <a class="github reference external" href="https://github.com/UBC-MDS/dsci_522_group_3/tree/main">UBC-MDS/dsci_522_group_3</a>.</p>
+</section>
+<section id="remarks">
+<h4>Remarks<a class="headerlink" href="#remarks" title="Permalink to this heading">#</a></h4>
+<section id="resampling">
+<h5>Resampling<a class="headerlink" href="#resampling" title="Permalink to this heading">#</a></h5>
+<p>S&amp;P500 index, CPI, and Interest rate data we obtained have different sampling frequencies. CPI data has the lowest frequency and it is sampled every first day of the month. We decided to resample all data to last day of every month thus it is easy to calculate and interpret year-year and month-month change. Interest rate data was sampled daily and it is noisy. We decided to filter the data by taking monthly median during resampling. The following table summarizes how data preprocessing was done.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Data</p></th>
+<th class="head"><p>Original sampling period</p></th>
+<th class="head"><p>Preprocess procedure</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>S&amp;P 500 Index</p></td>
+<td><p>daily</p></td>
+<td><p>Take the value from last day of month. If we do not have data for last day of month, use the data from the closest previous date</p></td>
+</tr>
+<tr class="row-odd"><td><p>CPI</p></td>
+<td><p>first day of every month</p></td>
+<td><p>Offset the date by 1 to last day of last month. We thought the value difference for 1 day is neglegible</p></td>
+</tr>
+<tr class="row-even"><td><p>Interest Rate</p></td>
+<td><p>daily</p></td>
+<td><p>Resample to the last day of month by taking the median price of for every day of the month to filter for noise</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="read-data-from-web">
+<h3>Read Data From Web<a class="headerlink" href="#read-data-from-web" title="Permalink to this heading">#</a></h3>
+<p>Here we read all data.</p>
+<section id="columns">
+<h4>columns<a class="headerlink" href="#columns" title="Permalink to this heading">#</a></h4>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>column name</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>gspc</p></td>
+<td><p>price of S&amp;P 500 stock index (will be ignored for model)</p></td>
+</tr>
+<tr class="row-odd"><td><p>inflation_rate_pct</p></td>
+<td><p>1 year inflation rate (12 months ago to now) (will be a feature for model)</p></td>
+</tr>
+<tr class="row-even"><td><p>interest_rate_pct</p></td>
+<td><p>interest rate (will be a feature for model)</p></td>
+</tr>
+<tr class="row-odd"><td><p>inflation_rate_pct_chg</p></td>
+<td><p>change of inflation between now and 12 months ago (will be a feature for model)</p></td>
+</tr>
+<tr class="row-even"><td><p>interest_rate_pct_chg</p></td>
+<td><p>change of interest rate between now and 12 months ago (will be a feature for model)</p></td>
+</tr>
+<tr class="row-odd"><td><p>gspc_prev_year_chg_pct</p></td>
+<td><p>change of gspc between now and 12 months ago (will be a feature for model)</p></td>
+</tr>
+<tr class="row-even"><td><p>gspc_next_year_pct_chg</p></td>
+<td><p>change of gspc between now and 12 months later (will be used to get target)</p></td>
+</tr>
+<tr class="row-odd"><td><p>target</p></td>
+<td><p>whether gspc increased 12 months later compared to now (will be target for classification)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="eda">
+<h3>EDA<a class="headerlink" href="#eda" title="Permalink to this heading">#</a></h3>
+<section id="time-series-plot-of-all-variables">
+<h4>Time series plot of all variables<a class="headerlink" href="#time-series-plot-of-all-variables" title="Permalink to this heading">#</a></h4>
+<figure class="align-default" id="time-series">
+<a class="reference internal image-reference" href="_images/time.png"><img alt="_images/time.png" src="_images/time.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Time series plot of all variables</span><a class="headerlink" href="#time-series" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>No NA or missing data in df</p></li>
+<li><p>One row record the observation for one month.</p></li>
+<li><p>The time series data is from 1955-07 to 2022-10, which contains 808 observations.</p></li>
+<li><p>The target is True when the stock price went up, and is False when the stock price went down.</p></li>
+<li><p>We will use four columns ‘inflation_rate_pct’, ‘interest_rate_pct’,
+‘inflation_rate_pct_chg’, ‘interest_rate_pct_chg’,
+‘gspc_prev_year_pct_chg’ as features, and the target as response in this binary classification problem.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="split-data-and-eda">
+<h2>Split data and EDA<a class="headerlink" href="#split-data-and-eda" title="Permalink to this heading">#</a></h2>
+<figure class="align-default" id="histogram">
+<a class="reference internal image-reference" href="_images/hist.png"><img alt="_images/hist.png" src="_images/hist.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Histograms of each variable</span><a class="headerlink" href="#histogram" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>Spearmean’s rank correlation test revealed some potential correlation between columns:</p></li>
+</ul>
+<p><strong>interest_rate_pct vs inflation_rate_pct</strong></p>
+<p><strong>interest_rate_pct_chg vs inflation_rate_pct_chg</strong></p>
+<p><strong>inflation_rate_pct_chg vs inflation_rate_pct</strong></p>
+<p><strong>interest_rate_pct_chg vs interest_rate_pct</strong></p>
+<figure class="align-default" id="scatter-plot">
+<a class="reference internal image-reference" href="_images/scat.png"><img alt="_images/scat.png" src="_images/scat.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Scatter plots of a few pairs of variables</span><a class="headerlink" href="#scatter-plot" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>Examine the data type for every column.</p></li>
+<li><p>Illustrate the distribution of all numeric columns and investigate possible correlations between them.</p></li>
+<li><p>Divide the dataframe into training and testing datasets with an 80:20 ratio.</p></li>
+<li><p>Based on the histograms of all columns, the five numerical columns ‘inflation_rate_pct’, ‘interest_rate_pct’, ‘inflation_rate_pct_chg’, ‘interest_rate_pct_chg’, and ‘gspc_prev_year_pct_chg’ are helpful in separating the target.</p></li>
+</ul>
+<section id="model">
+<h3>Model<a class="headerlink" href="#model" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="id9">
+<h3>Data<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
+<p>The dataset comprises records for 808 months, with each row featuring a crucial predictor for the corresponding month. Additionally, it indicates whether there was an increase or decrease in the S&amp;P 500 index, denoted by the values True or False.</p>
+</section>
+<section id="preprocessing-data">
+<h3>Preprocessing Data<a class="headerlink" href="#preprocessing-data" title="Permalink to this heading">#</a></h3>
+<section id="numeric-features">
+<h4>Numeric features:<a class="headerlink" href="#numeric-features" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>‘inflation_rate_pct’</p></li>
+<li><p>‘interest_rate_pct’</p></li>
+<li><p>‘inflation_rate_pct_chg’</p></li>
+<li><p>‘interest_rate_pct_chg’</p></li>
+<li><p>‘gspc_prev_year_pct_chg’</p></li>
+</ul>
+<p>Since there is no missing values, imputation is not necessary. And we apply a StandardScaler.</p>
+</section>
+</section>
+<section id="model-selection">
+<h3>Model Selection<a class="headerlink" href="#model-selection" title="Permalink to this heading">#</a></h3>
+<section id="logistic-regression">
+<h4>Logistic Regression<a class="headerlink" href="#logistic-regression" title="Permalink to this heading">#</a></h4>
+<p>Our focus is on identifying whether there is an increase in the S&amp;P 500 index, making it a classification problem. To tackle this, we utilize Logistic Regression.</p>
+<p>The test data of logistic regression yields an accuracy of <span class="pasted-text">75.30864197530865</span>%. Accuracy is a metric calculated as the ratio of correct predictions to all predictions. Nevertheless, caution is necessary when interpreting this metric, particularly in the context of class imbalance.</p>
+<section id="dummy-regression">
+<h5>Dummy Regression<a class="headerlink" href="#dummy-regression" title="Permalink to this heading">#</a></h5>
+</section>
+</section>
+</section>
+<section id="discussion">
+<h3>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">#</a></h3>
+<p>The model training is designed such that it follows the Golden Rule. The test data of dummy regression yields an accuracy of <span class="pasted-text">75.92592592592592</span>%. The accuracy of dummy regression is better then the accuracy of logistic regression. In the preceding examination, we utilize <code class="docutils literal notranslate"><span class="pre">Logistic</span> <span class="pre">Regression</span></code> and <code class="docutils literal notranslate"><span class="pre">Dummy</span> <span class="pre">Regression</span></code>. Consequently, the result does not show advantage of <code class="docutils literal notranslate"><span class="pre">Logistic</span> <span class="pre">Regression</span></code> over <code class="docutils literal notranslate"><span class="pre">Dummy</span> <span class="pre">Regression</span></code>. Further data preprocessing is needed to enhance the overall effectiveness of the model. This is aligned with expectation, because we do not have enough meaningful features to extract information that is helpful for a more accurate categorization. Also, we have imbalanced classes, which can also prevent the model from determining whether the index will grow.</p>
+<p>The model’s performance may be sensitive to hyperparameter settings, therefore it can be helpful to improve the model performance to experiment with different configurations through hyperparameter tuning. In the future, to improve the performance of the model, we may want to consult with specialists of finance field to get more key information about the topic. This will allow more features to be added to the data and positively impact the model training.</p>
+</section>
+<section id="reference">
+<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#pip install docutils==0.17.1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "522group3"
+        },
+        kernelOptions: {
+            name: "522group3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = '522group3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-results">Methods &amp; Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#raw">Raw</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#derived">Derived</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remarks">Remarks</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#resampling">Resampling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-data-from-web">Read Data From Web</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#columns">columns</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">EDA</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-plot-of-all-variables">Time series plot of all variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#split-data-and-eda">Split data and EDA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model">Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-data">Preprocessing Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-features">Numeric features:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-selection">Model Selection</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression">Logistic Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#dummy-regression">Dummy Regression</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allan Lee, Jianhao Zhang, Yi Yan, Chengyu Tao
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
