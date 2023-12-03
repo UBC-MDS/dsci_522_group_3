@@ -9,26 +9,25 @@ import click
 import os
 
 @click.command()
-@click.option()
 @click.option('--x_train_path', type=str)
 @click.option('--y_train_path', type=str)
 @click.option('--x_test_path', type=str)
 @click.option('--y_test_path', type=str)
 @click.option('--out_path', type=str)
-def main(X_train_path,
+def main(x_train_path,
          y_train_path,
-         X_test_path,
+         x_test_path,
          y_test_path,
-         out_path)
+         out_path):
 
     if not os.path.exists('results'):
         os.makedirs('results')
     if not os.path.exists('results/tables'):
         os.makedirs('results/tables')
 
-    X_train = pd.read_csv(X_train_path, index_col=0, parse_dates=True)
+    X_train = pd.read_csv(x_train_path, index_col=0, parse_dates=True)
     y_train = pd.read_csv(y_train_path, index_col=0, parse_dates=True)
-    X_test = pd.read_csv(X_test_path, index_col=0, parse_dates=True)
+    X_test = pd.read_csv(x_test_path, index_col=0, parse_dates=True)
     y_test = pd.read_csv(y_test_path, index_col=0, parse_dates=True)
 
     numerical_features = ['inflation_rate_pct', 'interest_rate_pct',
@@ -48,9 +47,8 @@ def main(X_train_path,
     dc.fit(X_train, y_train)
     dummy_score = dc.score(X_test, y_test)
 
-    df = pd.Dataframe(data=[dummy_score, mdl_score],
-                      index=['dummy_model_score',
-                             'logistic_regression_score'])
+    df = pd.DataFrame(data={'dummy_model_score': [dummy_score], 
+                            'logistic_regression_score': [mdl_score]})
     df.to_csv(out_path)
 
     return
