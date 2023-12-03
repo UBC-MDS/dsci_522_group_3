@@ -65,12 +65,14 @@ def train_test_split_class(prepared_data_frame, target_col, test_data_ratio, ran
 @click.command()
 @click.option('--processed_data_path', type=str)
 @click.option('--random_state', type=int)
+@click.option('--test_data_ratio', type=float)
 @click.option('--x_train_path', type=str)
 @click.option('--y_train_path', type=str)
 @click.option('--x_test_path', type=str)
 @click.option('--y_test_path', type=str)
 def main(processed_data_path,
          random_state,
+         test_data_ratio,
          x_train_path,
          y_train_path,
          x_test_path,
@@ -78,8 +80,8 @@ def main(processed_data_path,
     df = pd.read_csv(processed_data_path,
                      index_col=0,
                      parse_dates=True)
-    X_train, y_train, X_test, y_test = train_test_split_class(prepared_data_frame,
-                                                              target_col,
+    X_train, y_train, X_test, y_test = train_test_split_class(df,
+                                                              'target',
                                                               test_data_ratio,
                                                               random_state)
     X_train.to_csv(x_train_path)

@@ -18,9 +18,10 @@ python src/feature_extract.py \
   --data_path='data/processed/cleaned_data.csv' \
   --out_path='data/processed/processed_data.csv'
 
-python src/train_test_split.py \
+python src/train_test_split_class.py \
   --processed_data_path='data/processed/processed_data.csv' \
   --random_state='123' \
+  --test_data_ratio='0.2'\
   --x_train_path='data/processed/x_train.csv' \
   --y_train_path='data/processed/y_train.csv' \
   --x_test_path='data/processed/x_test.csv' \
