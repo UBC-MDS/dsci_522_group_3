@@ -338,10 +338,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-selection">Model Selection</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression">Logistic Regression</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#dummy-regression">Dummy Regression</a></li>
-</ul>
-</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression">Logistic Regression</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dummy-regression">Dummy Regression</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
@@ -364,12 +362,18 @@ document.write(`
 <p><em>We utilized logistic regression to analyze the stock price data and provided a predictive model.</em></p>
 <p>by Allan Lee, Jianhao Zhang, Yi Yan and Chengyu Tao (DSCI 522 Group 3 Milestone 3)</p>
 <p>2023/12/02</p>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell tag_remove-input docutils container">
+</div>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
-<p>During the COVID-19 pandemic, central banks around the world lowered interest rates to ease economical challenges posed by the pandemic. As the pandemic ease, the lowered interest rate leads to excess consumer spending which increased the inflation rate to unacceptable levels. In order to control the inflation and have it return to pre-pandemic levels, the central bank raised the interest rate sharply to the highest level in 15 years. Nowadays, inflation and interest rate often takes the headline of financial news and with more than 50% of American households owning stocks <span id="id1">[]</span>, our team is curious to find out how inflation and interest rate affect stock returns. We ask the question: given inflation rate and interest rate data, can we predict whether we will profit if we invest in a stock market index and hold for 1 year.</p>
+<p>During the COVID-19 pandemic, central banks around the world lowered interest rates to ease economical challenges posed by the pandemic. As the pandemic ease, the lowered interest rate leads to excess consumer spending which increased the inflation rate to unacceptable levels. In order to control the inflation and have it return to pre-pandemic levels, the central bank raised the interest rate sharply to the highest level in 15 years. Nowadays, inflation and interest rate often takes the headline of financial news and with more than 50% of American households owning stocks <span id="id1">[<a class="reference internal" href="#id12" title="The Motley Fool. How many americans own stock? more than you think. 2023. URL: https://www.fool.com/research/how-many-americans-own-stock/.">Fool, 2023</a>]</span>, our team is curious to find out how inflation and interest rate affect stock returns. We ask the question: given inflation rate and interest rate data, can we predict whether we will profit if we invest in a stock market index and hold for 1 year.</p>
 </section>
 <section id="methods-results">
 <h2>Methods &amp; Results<a class="headerlink" href="#methods-results" title="Permalink to this heading">#</a></h2>
@@ -378,8 +382,8 @@ document.write(`
 <section id="raw">
 <h4>Raw<a class="headerlink" href="#raw" title="Permalink to this heading">#</a></h4>
 <ol class="arabic simple">
-<li><p>We decided to use the Standard &amp; Poors 500 Index (S&amp;P500) as stock market proxy. The index tracks stocks of 500 largest companies in USA. The price of S&amp;P500 is obtained from Yahoo Finance <span id="id2">[]</span>.</p></li>
-<li><p>Inflation data is obtained from calculating the change of consumer price index (CPI) <span id="id3">[]</span>. We obtained United States CPI from the Federal Reserve Economic Data website and computed yearly inflation rate.</p></li>
+<li><p>We decided to use the Standard &amp; Poors 500 Index (S&amp;P500) as stock market proxy. The index tracks stocks of 500 largest companies in USA. The price of S&amp;P500 is obtained from Yahoo Finance <span id="id2">[<a class="reference internal" href="#id11" title="Yahoo. S&amp;p 500. 2023. URL: https://ca.finance.yahoo.com/quote/%5EGSPCp=%5EGSPC&amp;.tsrc=fin-srch.">Yahoo, 2023</a>]</span>.</p></li>
+<li><p>Inflation data is obtained from calculating the change of consumer price index (CPI) <span id="id3">[<a class="reference internal" href="#id11" title="Yahoo. S&amp;p 500. 2023. URL: https://ca.finance.yahoo.com/quote/%5EGSPCp=%5EGSPC&amp;.tsrc=fin-srch.">Yahoo, 2023</a>]</span>. We obtained United States CPI from the Federal Reserve Economic Data website and computed yearly inflation rate.</p></li>
 <li><p>We can use the Federal funds rate as proxy for interest rate. It is the target interest rate set by the Federal reserve for commercial banks to lend and borrow overnight. We obtained the Federal funds rate from the Federal Reserve Economic Data website.</p></li>
 </ol>
 </section>
@@ -389,7 +393,7 @@ document.write(`
 </section>
 <section id="analysis">
 <h4>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading">#</a></h4>
-<p>The Python programming language <span id="id4">[]</span> and the following Python packages were used to perform the analysis:  Numpy <span id="id5">[]</span>, Pandas <span id="id6">[]</span>, Altair <span id="id7">[]</span>, Scikit-learn <span id="id8">[]</span>. The code used to perform the EDA and create the report which can be found here: <a class="github reference external" href="https://github.com/UBC-MDS/dsci_522_group_3/tree/main">UBC-MDS/dsci_522_group_3</a>.</p>
+<p>The Python programming language <span id="id4">[<a class="reference internal" href="#id17" title="Guido Van Rossum, Fred L Drake, and others. Python reference manual. Volume 111. Centrum voor Wiskunde en Informatica Amsterdam, 1995.">Van Rossum <em>et al.</em>, 1995</a>]</span> and the following Python packages were used to perform the analysis:  Numpy <span id="id5">[<a class="reference internal" href="#id13" title="Charles R Harris, K Jarrod Millman, Stéfan J Van Der Walt, Ralf Gommers, Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor, Sebastian Berg, Nathaniel J Smith, and others. Array programming with numpy. Nature, 585(7825):357–362, 2020.">Harris <em>et al.</em>, 2020</a>]</span>, Pandas <span id="id6">[<a class="reference internal" href="#id14" title="Wes McKinney. Data structures for statistical computing in python. In Stéfan van der Walt and Jarrod Millman, editors, Proceedings of the 9th Python in Science Conference, =51 - 56. 2010.">McKinney, 2010</a>]</span>, Altair <span id="id7">[<a class="reference internal" href="#id16" title="Jacob VanderPlas, Brian Granger, Jeffrey Heer, Dominik Moritz, Kanit Wongsuphasawat, Arvind Satyanarayan, Eitan Lees, Ilia Timofeev, Ben Welsh, and Scott Sievert. Altair: interactive statistical visualizations for python. Journal of open source software, 3(32):1057, 2018.">VanderPlas <em>et al.</em>, 2018</a>]</span>, Scikit-learn <span id="id8">[<a class="reference internal" href="#id15" title="Fabian Pedregosa, Gaël Varoquaux, Alexandre Gramfort, Vincent Michel, Bertrand Thirion, Olivier Grisel, Mathieu Blondel, Peter Prettenhofer, Ron Weiss, Vincent Dubourg, and others. Scikit-learn: machine learning in python. the Journal of machine Learning research, 12:2825–2830, 2011.">Pedregosa <em>et al.</em>, 2011</a>]</span>. The code used to perform the EDA and create the report which can be found here: <a class="github reference external" href="https://github.com/UBC-MDS/dsci_522_group_3/tree/main">UBC-MDS/dsci_522_group_3</a>.</p>
 </section>
 <section id="remarks">
 <h4>Remarks<a class="headerlink" href="#remarks" title="Permalink to this heading">#</a></h4>
@@ -459,6 +463,103 @@ document.write(`
 </tr>
 </tbody>
 </table>
+<figure class="align-default" id="data-head">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>gspc</th>
+      <th>gspc_next_year_pct_chg</th>
+      <th>gspc_prev_year_pct_chg</th>
+      <th>inflation_rate_pct</th>
+      <th>inflation_rate_pct_chg</th>
+      <th>interest_rate_pct</th>
+      <th>interest_rate_pct_chg</th>
+      <th>target</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1955-07-31</td>
+      <td>43.520000</td>
+      <td>13.488049</td>
+      <td>40.932648</td>
+      <td>-0.371747</td>
+      <td>-0.371747</td>
+      <td>1.69</td>
+      <td>0.94</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1955-08-31</td>
+      <td>43.180000</td>
+      <td>10.027786</td>
+      <td>44.753605</td>
+      <td>0.373134</td>
+      <td>0.744882</td>
+      <td>2.00</td>
+      <td>0.62</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1955-09-30</td>
+      <td>43.669998</td>
+      <td>3.847035</td>
+      <td>35.159382</td>
+      <td>0.373134</td>
+      <td>1.113875</td>
+      <td>2.19</td>
+      <td>1.00</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1955-10-31</td>
+      <td>42.340000</td>
+      <td>7.652342</td>
+      <td>33.648989</td>
+      <td>0.373134</td>
+      <td>0.744882</td>
+      <td>2.25</td>
+      <td>1.25</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1955-11-30</td>
+      <td>45.509998</td>
+      <td>-0.944840</td>
+      <td>32.914708</td>
+      <td>0.374532</td>
+      <td>1.118026</td>
+      <td>2.25</td>
+      <td>1.37</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Present the head of the processed data.</span><a class="headerlink" href="#data-head" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 <section id="eda">
@@ -468,7 +569,7 @@ document.write(`
 <figure class="align-default" id="time-series">
 <a class="reference internal image-reference" href="_images/time.png"><img alt="_images/time.png" src="_images/time.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Time series plot of all variables</span><a class="headerlink" href="#time-series" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Time series plot of all variables</span><a class="headerlink" href="#time-series" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -488,7 +589,7 @@ document.write(`
 <figure class="align-default" id="histogram">
 <a class="reference internal image-reference" href="_images/hist.png"><img alt="_images/hist.png" src="_images/hist.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Histograms of each variable</span><a class="headerlink" href="#histogram" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Histograms of each variable</span><a class="headerlink" href="#histogram" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -501,7 +602,7 @@ document.write(`
 <figure class="align-default" id="scatter-plot">
 <a class="reference internal image-reference" href="_images/scat.png"><img alt="_images/scat.png" src="_images/scat.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Scatter plots of a few pairs of variables</span><a class="headerlink" href="#scatter-plot" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Scatter plots of a few pairs of variables</span><a class="headerlink" href="#scatter-plot" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -536,25 +637,147 @@ document.write(`
 <section id="logistic-regression">
 <h4>Logistic Regression<a class="headerlink" href="#logistic-regression" title="Permalink to this heading">#</a></h4>
 <p>Our focus is on identifying whether there is an increase in the S&amp;P 500 index, making it a classification problem. To tackle this, we utilize Logistic Regression.</p>
-<p>The test data of logistic regression yields an accuracy of <span class="pasted-text">75.30864197530865</span>%. Accuracy is a metric calculated as the ratio of correct predictions to all predictions. Nevertheless, caution is necessary when interpreting this metric, particularly in the context of class imbalance.</p>
-<section id="dummy-regression">
-<h5>Dummy Regression<a class="headerlink" href="#dummy-regression" title="Permalink to this heading">#</a></h5>
+<figure class="align-default" id="regression-mean-test-score">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>logistic_regression_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.753086</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Present results of logistic regression model.</span><a class="headerlink" href="#regression-mean-test-score" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The test data of logistic regression yields an accuracy of <span class="pasted-text">   logistic_regression_score
+0                   0.753086</span>%. Accuracy is a metric calculated as the ratio of correct predictions to all predictions. Nevertheless, caution is necessary when interpreting this metric, particularly in the context of class imbalance.</p>
 </section>
+<section id="dummy-regression">
+<h4>Dummy Regression<a class="headerlink" href="#dummy-regression" title="Permalink to this heading">#</a></h4>
+<figure class="align-default" id="dummy-mean-test-score">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dummy_model_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.759259</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Present results of dummy model.</span><a class="headerlink" href="#dummy-mean-test-score" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 <section id="discussion">
 <h3>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">#</a></h3>
-<p>The model training is designed such that it follows the Golden Rule. The test data of dummy regression yields an accuracy of <span class="pasted-text">75.92592592592592</span>%. The accuracy of dummy regression is better then the accuracy of logistic regression. In the preceding examination, we utilize <code class="docutils literal notranslate"><span class="pre">Logistic</span> <span class="pre">Regression</span></code> and <code class="docutils literal notranslate"><span class="pre">Dummy</span> <span class="pre">Regression</span></code>. Consequently, the result does not show advantage of <code class="docutils literal notranslate"><span class="pre">Logistic</span> <span class="pre">Regression</span></code> over <code class="docutils literal notranslate"><span class="pre">Dummy</span> <span class="pre">Regression</span></code>. Further data preprocessing is needed to enhance the overall effectiveness of the model. This is aligned with expectation, because we do not have enough meaningful features to extract information that is helpful for a more accurate categorization. Also, we have imbalanced classes, which can also prevent the model from determining whether the index will grow.</p>
+<p>The model training is designed such that it follows the Golden Rule. The test data of dummy regression yields an accuracy of <span class="pasted-text">   dummy_model_score
+0           0.759259</span>%. The accuracy of dummy regression is better then the accuracy of logistic regression. In the preceding examination, we utilize <code class="docutils literal notranslate"><span class="pre">Logistic</span> <span class="pre">Regression</span></code> and <code class="docutils literal notranslate"><span class="pre">Dummy</span> <span class="pre">Regression</span></code>. Consequently, the result does not show advantage of <code class="docutils literal notranslate"><span class="pre">Logistic</span> <span class="pre">Regression</span></code> over <code class="docutils literal notranslate"><span class="pre">Dummy</span> <span class="pre">Regression</span></code>. (see <span class="pasted-text">   dummy_model_score  logistic_regression_score
+0           0.759259                   0.753086</span>%) Further data preprocessing is needed to enhance the overall effectiveness of the model. This is aligned with expectation, because we do not have enough meaningful features to extract information that is helpful for a more accurate categorization. Also, we have imbalanced classes, which can also prevent the model from determining whether the index will grow.</p>
 <p>The model’s performance may be sensitive to hyperparameter settings, therefore it can be helpful to improve the model performance to experiment with different configurations through hyperparameter tuning. In the future, to improve the performance of the model, we may want to consult with specialists of finance field to get more key information about the topic. This will allow more features to be added to the data and positively impact the model training.</p>
+<figure class="align-default" id="result-df">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dummy_model_score</th>
+      <th>logistic_regression_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.759259</td>
+      <td>0.753086</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Comparison of Dummy model and Logistic Regression Score on Test Data</span><a class="headerlink" href="#result-df" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="reference">
 <h3>Reference<a class="headerlink" href="#reference" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#pip install docutils==0.17.1</span>
-</pre></div>
-</div>
-</div>
+<div class="docutils container" id="id10">
+<dl class="citation">
+<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id1">Foo23</a></span></dt>
+<dd><p>The Motley Fool. How many americans own stock? more than you think. 2023. URL: <a class="reference external" href="https://www.fool.com/research/how-many-americans-own-stock/">https://www.fool.com/research/how-many-americans-own-stock/</a>.</p>
+</dd>
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id5">HMVDW+20</a></span></dt>
+<dd><p>Charles R Harris, K Jarrod Millman, Stéfan J Van Der Walt, Ralf Gommers, Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor, Sebastian Berg, Nathaniel J Smith, and others. Array programming with numpy. <em>Nature</em>, 585(7825):357–362, 2020.</p>
+</dd>
+<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id6">McK10</a></span></dt>
+<dd><p>Wes McKinney. Data structures for statistical computing in python. In Stéfan van der Walt and Jarrod Millman, editors, <em>Proceedings of the 9th Python in Science Conference</em>, =51 – 56. 2010.</p>
+</dd>
+<dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id8">PVG+11</a></span></dt>
+<dd><p>Fabian Pedregosa, Gaël Varoquaux, Alexandre Gramfort, Vincent Michel, Bertrand Thirion, Olivier Grisel, Mathieu Blondel, Peter Prettenhofer, Ron Weiss, Vincent Dubourg, and others. Scikit-learn: machine learning in python. <em>the Journal of machine Learning research</em>, 12:2825–2830, 2011.</p>
+</dd>
+<dt class="label" id="id17"><span class="brackets"><a class="fn-backref" href="#id4">VRD+95</a></span></dt>
+<dd><p>Guido Van Rossum, Fred L Drake, and others. <em>Python reference manual</em>. Volume 111. Centrum voor Wiskunde en Informatica Amsterdam, 1995.</p>
+</dd>
+<dt class="label" id="id16"><span class="brackets"><a class="fn-backref" href="#id7">VGH+18</a></span></dt>
+<dd><p>Jacob VanderPlas, Brian Granger, Jeffrey Heer, Dominik Moritz, Kanit Wongsuphasawat, Arvind Satyanarayan, Eitan Lees, Ilia Timofeev, Ben Welsh, and Scott Sievert. Altair: interactive statistical visualizations for python. <em>Journal of open source software</em>, 3(32):1057, 2018.</p>
+</dd>
+<dt class="label" id="id11"><span class="brackets">Yah23</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id3">2</a>)</span></dt>
+<dd><p>Yahoo. S&amp;p 500. 2023. URL: <a class="reference external" href="https://ca.finance.yahoo.com/quote/%5EGSPCp=%5EGSPC&amp;.tsrc=fin-srch">https://ca.finance.yahoo.com/quote/%5EGSPCp=%5EGSPC&amp;.tsrc=fin-srch</a>.</p>
+</dd>
+</dl>
 </div>
 </section>
 </section>
@@ -569,16 +792,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "522group3"
+            mode: "conda-env-522Group3-py"
         },
         kernelOptions: {
-            name: "522group3",
+            name: "conda-env-522Group3-py",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = '522group3'</script>
+    <script>kernelName = 'conda-env-522Group3-py'</script>
 
                 </article>
               
@@ -636,10 +859,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-selection">Model Selection</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression">Logistic Regression</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#dummy-regression">Dummy Regression</a></li>
-</ul>
-</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression">Logistic Regression</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dummy-regression">Dummy Regression</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>

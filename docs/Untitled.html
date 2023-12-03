@@ -1,0 +1,532 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Test &#8212; Predicting direction of stock price from interest rate and inflation rate</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Untitled';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="predicting_direction_of_stock_price_from_inflation_rate_and_interest_rate.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Predicting direction of stock price from interest rate and inflation rate</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="predicting_direction_of_stock_price_from_inflation_rate_and_interest_rate.html">
+                    Predicting direction of stock price from interest rate and inflation rate
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Untitled.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Test</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-results">Methods &amp; Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#raw">Raw</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#derived">Derived</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remarks">Remarks</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#resampling">Resampling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="test">
+<h1>Test<a class="headerlink" href="#test" title="Permalink to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>During the COVID-19 pandemic, central banks around the world lowered interest rates to ease economical challenges posed by the pandemic. As the pandemic ease, the lowered interest rate leads to excess consumer spending which increased the inflation rate to unacceptable levels. In order to control the inflation and have it return to pre-pandemic levels, the central bank raised the interest rate sharply to the highest level in 15 years. Nowadays, inflation and interest rate often takes the headline of financial news and with more than 50% of American households owning stocks <span id="id1">[<a class="reference internal" href="predicting_direction_of_stock_price_from_inflation_rate_and_interest_rate.html#id12" title="The Motley Fool. How many americans own stock? more than you think. 2023. URL: https://www.fool.com/research/how-many-americans-own-stock/.">Fool, 2023</a>]</span>, our team is curious to find out how inflation and interest rate affect stock returns. We ask the question: given inflation rate and interest rate data, can we predict whether we will profit if we invest in a stock market index and hold for 1 year.</p>
+</section>
+<section id="methods-results">
+<h2>Methods &amp; Results<a class="headerlink" href="#methods-results" title="Permalink to this heading">#</a></h2>
+<section id="data">
+<h3>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h3>
+<section id="raw">
+<h4>Raw<a class="headerlink" href="#raw" title="Permalink to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>We decided to use the Standard &amp; Poors 500 Index (S&amp;P500) as stock market proxy. The index tracks stocks of 500 largest companies in USA. The price of S&amp;P500 is obtained from Yahoo Finance <span id="id2">[<a class="reference internal" href="predicting_direction_of_stock_price_from_inflation_rate_and_interest_rate.html#id11" title="Yahoo. S&amp;p 500. 2023. URL: https://ca.finance.yahoo.com/quote/%5EGSPCp=%5EGSPC&amp;.tsrc=fin-srch.">Yahoo, 2023</a>]</span>.</p></li>
+<li><p>Inflation data is obtained from calculating the change of consumer price index (CPI) <span id="id3">[<a class="reference internal" href="predicting_direction_of_stock_price_from_inflation_rate_and_interest_rate.html#id11" title="Yahoo. S&amp;p 500. 2023. URL: https://ca.finance.yahoo.com/quote/%5EGSPCp=%5EGSPC&amp;.tsrc=fin-srch.">Yahoo, 2023</a>]</span>. We obtained United States CPI from the Federal Reserve Economic Data website and computed yearly inflation rate.</p></li>
+<li><p>We can use the Federal funds rate as proxy for interest rate. It is the target interest rate set by the Federal reserve for commercial banks to lend and borrow overnight. We obtained the Federal funds rate from the Federal Reserve Economic Data website.</p></li>
+</ol>
+</section>
+<section id="derived">
+<h4>Derived<a class="headerlink" href="#derived" title="Permalink to this heading">#</a></h4>
+<p>We derived the change in inflation rate and change in interest rate from the data we have as additional feature. We often hear on the news that inflation and interest rate are increasing or decreasing thus we thought these 2 features might provide additional predicting power for our model</p>
+</section>
+<section id="analysis">
+<h4>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading">#</a></h4>
+<p>The Python programming language <span id="id4">[<a class="reference internal" href="predicting_direction_of_stock_price_from_inflation_rate_and_interest_rate.html#id17" title="Guido Van Rossum, Fred L Drake, and others. Python reference manual. Volume 111. Centrum voor Wiskunde en Informatica Amsterdam, 1995.">Van Rossum <em>et al.</em>, 1995</a>]</span> and the following Python packages were used to perform the analysis:  Numpy <span id="id5">[<a class="reference internal" href="predicting_direction_of_stock_price_from_inflation_rate_and_interest_rate.html#id13" title="Charles R Harris, K Jarrod Millman, Stéfan J Van Der Walt, Ralf Gommers, Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor, Sebastian Berg, Nathaniel J Smith, and others. Array programming with numpy. Nature, 585(7825):357–362, 2020.">Harris <em>et al.</em>, 2020</a>]</span>, Pandas <span id="id6">[<a class="reference internal" href="predicting_direction_of_stock_price_from_inflation_rate_and_interest_rate.html#id14" title="Wes McKinney. Data structures for statistical computing in python. In Stéfan van der Walt and Jarrod Millman, editors, Proceedings of the 9th Python in Science Conference, =51 - 56. 2010.">McKinney, 2010</a>]</span>, Altair <span id="id7">[<a class="reference internal" href="predicting_direction_of_stock_price_from_inflation_rate_and_interest_rate.html#id16" title="Jacob VanderPlas, Brian Granger, Jeffrey Heer, Dominik Moritz, Kanit Wongsuphasawat, Arvind Satyanarayan, Eitan Lees, Ilia Timofeev, Ben Welsh, and Scott Sievert. Altair: interactive statistical visualizations for python. Journal of open source software, 3(32):1057, 2018.">VanderPlas <em>et al.</em>, 2018</a>]</span>, Scikit-learn <span id="id8">[<a class="reference internal" href="predicting_direction_of_stock_price_from_inflation_rate_and_interest_rate.html#id15" title="Fabian Pedregosa, Gaël Varoquaux, Alexandre Gramfort, Vincent Michel, Bertrand Thirion, Olivier Grisel, Mathieu Blondel, Peter Prettenhofer, Ron Weiss, Vincent Dubourg, and others. Scikit-learn: machine learning in python. the Journal of machine Learning research, 12:2825–2830, 2011.">Pedregosa <em>et al.</em>, 2011</a>]</span>. The code used to perform the EDA and create the report which can be found here: <a class="github reference external" href="https://github.com/UBC-MDS/dsci_522_group_3/tree/main">UBC-MDS/dsci_522_group_3</a>.</p>
+</section>
+<section id="remarks">
+<h4>Remarks<a class="headerlink" href="#remarks" title="Permalink to this heading">#</a></h4>
+<section id="resampling">
+<h5>Resampling<a class="headerlink" href="#resampling" title="Permalink to this heading">#</a></h5>
+<p>S&amp;P500 index, CPI, and Interest rate data we obtained have different sampling frequencies. CPI data has the lowest frequency and it is sampled every first day of the month. We decided to resample all data to last day of every month thus it is easy to calculate and interpret year-year and month-month change. Interest rate data was sampled daily and it is noisy. We decided to filter the data by taking monthly median during resampling. The following table summarizes how data preprocessing was done.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Data</p></th>
+<th class="head"><p>Original sampling period</p></th>
+<th class="head"><p>Preprocess procedure</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>S&amp;P 500 Index</p></td>
+<td><p>daily</p></td>
+<td><p>Take the value from last day of month. If we do not have data for last day of month, use the data from the closest previous date</p></td>
+</tr>
+<tr class="row-odd"><td><p>CPI</p></td>
+<td><p>first day of every month</p></td>
+<td><p>Offset the date by 1 to last day of last month. We thought the value difference for 1 day is neglegible</p></td>
+</tr>
+<tr class="row-even"><td><p>Interest Rate</p></td>
+<td><p>daily</p></td>
+<td><p>Resample to the last day of month by taking the median price of for every day of the month to filter for noise</p></td>
+</tr>
+</tbody>
+</table>
+<div class="docutils container" id="id9">
+<dl class="citation">
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id1">Foo23</a></span></dt>
+<dd><p>The Motley Fool. How many americans own stock? more than you think. 2023. URL: <a class="reference external" href="https://www.fool.com/research/how-many-americans-own-stock/">https://www.fool.com/research/how-many-americans-own-stock/</a>.</p>
+</dd>
+<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id5">HMVDW+20</a></span></dt>
+<dd><p>Charles R Harris, K Jarrod Millman, Stéfan J Van Der Walt, Ralf Gommers, Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor, Sebastian Berg, Nathaniel J Smith, and others. Array programming with numpy. <em>Nature</em>, 585(7825):357–362, 2020.</p>
+</dd>
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id6">McK10</a></span></dt>
+<dd><p>Wes McKinney. Data structures for statistical computing in python. In Stéfan van der Walt and Jarrod Millman, editors, <em>Proceedings of the 9th Python in Science Conference</em>, =51 – 56. 2010.</p>
+</dd>
+<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id8">PVG+11</a></span></dt>
+<dd><p>Fabian Pedregosa, Gaël Varoquaux, Alexandre Gramfort, Vincent Michel, Bertrand Thirion, Olivier Grisel, Mathieu Blondel, Peter Prettenhofer, Ron Weiss, Vincent Dubourg, and others. Scikit-learn: machine learning in python. <em>the Journal of machine Learning research</em>, 12:2825–2830, 2011.</p>
+</dd>
+<dt class="label" id="id16"><span class="brackets"><a class="fn-backref" href="#id4">VRD+95</a></span></dt>
+<dd><p>Guido Van Rossum, Fred L Drake, and others. <em>Python reference manual</em>. Volume 111. Centrum voor Wiskunde en Informatica Amsterdam, 1995.</p>
+</dd>
+<dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id7">VGH+18</a></span></dt>
+<dd><p>Jacob VanderPlas, Brian Granger, Jeffrey Heer, Dominik Moritz, Kanit Wongsuphasawat, Arvind Satyanarayan, Eitan Lees, Ilia Timofeev, Ben Welsh, and Scott Sievert. Altair: interactive statistical visualizations for python. <em>Journal of open source software</em>, 3(32):1057, 2018.</p>
+</dd>
+<dt class="label" id="id10"><span class="brackets">Yah23</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id3">2</a>)</span></dt>
+<dd><p>Yahoo. S&amp;p 500. 2023. URL: <a class="reference external" href="https://ca.finance.yahoo.com/quote/%5EGSPCp=%5EGSPC&amp;.tsrc=fin-srch">https://ca.finance.yahoo.com/quote/%5EGSPCp=%5EGSPC&amp;.tsrc=fin-srch</a>.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-env-522Group3-py"
+        },
+        kernelOptions: {
+            name: "conda-env-522Group3-py",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-522Group3-py'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-results">Methods &amp; Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#raw">Raw</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#derived">Derived</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remarks">Remarks</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#resampling">Resampling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Allan Lee, Jianhao Zhang, Yi Yan, Chengyu Tao
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
