@@ -22,27 +22,27 @@ More detailed dependencies are specified in this [Dockerfile](https://github.com
 
 ## Usage
 
-#### Setup
+### Setup
 
 1.  Install and launch Docker on your computer from the website: <https://www.docker.com/get-started/>
 
-2.  Clone the GitHub repository.
+2.  Clone the GitHub repository to your own laptop.
 
-#### Running the analysis
+### Running the analysis
 
 1.  Open the Docker app.
 
-2.  Enter the following command in the terminal.
+2.  Enter the following command in the project root folder terminal, where you git cloned the project.
 
 ```         
-docker compose up jupyter-lab
+docker compose up
 ```
 
 3.  In the terminal, look for a URL that starts with <http://127.0.0.1:8888/lab?token=>, as highlighted in the graph. Copy and paste that URL into your browser.
 
 ![Photo of terminal](images/container.jpg)
 
-4.  To run the analysis, enter the following commands in the terminal in the project folder
+4.  To run the analysis, enter the following commands in the jupyter lab terminal in the project folder
 
     ```         
     # download and extract data
@@ -76,7 +76,6 @@ docker compose up jupyter-lab
       --x_test_path='data/processed/x_test.csv' \
       --y_test_path='data/processed/y_test.csv'
 
-
     # perform eda
     python src/eda.py \
       --processed_data_path='data/processed/processed_data.csv'\
@@ -102,13 +101,17 @@ docker compose up jupyter-lab
     cp -r report/_build/html/* docs
     ```
 
-#### Clean up
+### Clean up
 
-1.  To shut down the container and clean up the resources, type `Cntrl` + `C` in the terminal where you launched the container, and then type 'docker compose rm'
+1.  To shut down the container and clean up the resources, type `Cntrl` + `C` in the terminal where you launched the container or close the jupyter lab browser.
+2.  Then type
+```
+docker compose rm
+```
 
 ## Developer notes
 
-#### Adding a new dependency (cite from Tiffany's [repo](https://github.com/ttimbers/breast_cancer_predictor_py/tree/v1.0.0) )
+### Adding a new dependency (cite from Tiffany's [repo](https://github.com/ttimbers/breast_cancer_predictor_py/tree/v1.0.0) )
 
 1.  Add the dependency to the `Dockerfile` file on a new branch.
 
@@ -120,7 +123,7 @@ docker compose up jupyter-lab
 
 5.  Send a pull request to merge the changes into the `main` branch.
 
-#### Running the tests
+### Running the tests
 
 Tests are run using the `pytest` command in the root of the project. More details about the test suite can be found in the `tests` directory.
 
@@ -130,36 +133,20 @@ pytest tests/*
 
 ## License
 
-Copyright (c) 2023 Master of Data Science at the University of British Columbia. Detailed information please refer to LICENSE.md.
+Copyright (c) 2023 Master of Data Science at the University of British Columbia. CC BY 4.0 DEED Attribution 4.0 International. Creative Common License. For detailed information please refer to LICENSE.md.
 
 ## References
 
-::: {.references .hanging-indent}
-::: {#ref-Caporal}
-Caporal, J. (2023). *How many Americans own stock? more than you think*. The Motley Fool. <https://www.fool.com/research/how-many-americans-own-stock/>
-:::
+Caporal, J. (2023). How many Americans own stock? more than you think. The Motley Fool. <https://www.fool.com/research/how-many-americans-own-stock/>
 
-::: {#ref-Harris}
 Harris, C.R. et al., (2020). Array programming with NumPy. Nature, 585, pp.357--362.
-:::
 
-::: {#ref_McKinney}
 McKinney, W. (2010). "Data Structures for Statistical Computing in Python." In Proceedings of the 9th Python in Science Conference, edited by Stéfan van der Walt and Jarrod Millman, 51--56.
-:::
 
-::: {#ref-Pedregosa}
 Pedregosa, F. et al., (2011). Scikit-learn: Machine learning in Python. Journal of machine learning research, 12(Oct), pp.2825--2830.
-:::
 
-::: {#ref-VanderPlas}
 VanderPlas, J. et al., (2018). Altair: Interactive statistical visualizations for python. Journal of open source software, 3(32), p.1057.
-:::
 
-::: {#ref-Van}
 Van Rossum, G.,& Fred L. D. (2009). Python 3 Reference Manual. Scotts Valley, CA: CreateSpace.
-:::
 
-::: {#ref-Yahoo}
 Yahoo!. S&P 500 (\^GSPC) charts, Data & News. (n.d.). Yahoo! Finance.<https://ca.finance.yahoo.com/quote/%5EGSPC?p=%5EGSPC&.tsrc=fin-srch>.
-:::
-:::
