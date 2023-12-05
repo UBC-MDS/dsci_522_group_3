@@ -94,8 +94,10 @@ docker compose up jupyter-lab
       --y_test_path='data/processed/y_test.csv' \
       --out_path='results/tables/mdl_result.csv'
 
+    #run the below code, if you encounter error when exporting jupyter-book
+    python -m ipykernel install --user --name conda-env-522Group3-py
 
-    # renter HTML report 
+    # renter HTML report and save to docs folder
     jupyter-book build report
     cp -r report/_build/html/* docs
     ```
