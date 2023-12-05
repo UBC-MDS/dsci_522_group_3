@@ -26,13 +26,13 @@ More detailed dependencies are specified in this [Dockerfile](https://github.com
 
 1.  Install and launch Docker on your computer from the website: <https://www.docker.com/get-started/>
 
-2.  Clone the GitHub repository.
+2.  Clone the GitHub repository to your own laptop.
 
 ### Running the analysis
 
 1.  Open the Docker app.
 
-2.  Enter the following command in the terminal.
+2.  Enter the following command in the project root folder terminal, where you git cloned the project.
 
 ```         
 docker compose up
@@ -42,7 +42,7 @@ docker compose up
 
 ![Photo of terminal](images/container.jpg)
 
-4.  To run the analysis, enter the following commands in the terminal in the project folder
+4.  To run the analysis, enter the following commands in the jupyter lab terminal in the project folder
 
     ```         
     # download and extract data
