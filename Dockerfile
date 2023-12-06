@@ -15,3 +15,6 @@ RUN pip install vegafusion-python-embed==1.4.5 \
                 vl-convert-python==1.1.0 \
                 vegafusion==1.4.5 \
                 yfinance==0.2.32
+
+RUN conda install -y -c anaconda make
+RUN python -m ipykernel install --user --name conda-env-522Group3-py
