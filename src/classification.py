@@ -5,6 +5,7 @@ from sklearn.compose import make_column_transformer
 from sklearn.pipeline import make_pipeline
 from sklearn.linear_model import LogisticRegression
 from sklearn.dummy import DummyClassifier
+from sklearn.metrics import precision_score
 import click
 import os
 
@@ -41,16 +42,19 @@ def main(x_train_path,
 
     pipe = make_pipeline(preprocessor, LogisticRegression())
     pipe.fit(X_train, y_train)
-    mdl_score = pipe.score(X_test, y_test)
+
+    y_dummy = pipe.predict(X_test)
+    mdl_score = precision_score(y_test, y_dummy)
 
     dc = DummyClassifier()
     dc.fit(X_train, y_train)
-    dummy_score = dc.score(X_test, y_test)
+    y_dc = dc.predict(X_test)
+    dummy_score = precision_score(y_test, y_dc)
 
-    df = pd.DataFrame(data={'dummy_model_score': [dummy_score], 
-                            'logistic_regression_score': [mdl_score]})
+
+    df = pd.DataFrame(data={'dummy_model_precision_score (%)': [round(dummy_score * 100, 2)], 
+                            'logistic_regression_precision_score (%)': [round(mdl_score * 100, 2)]})
     df.to_csv(out_path)
-
     return
 
 
