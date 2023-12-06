@@ -60,4 +60,4 @@ data/processed/processed_data.csv
 	jupyter-book build report
 
 clean:
-	rm -rf data* results*
+	rm -rf data* results* report/_build
