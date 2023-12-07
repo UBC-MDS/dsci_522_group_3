@@ -1,6 +1,6 @@
 # Predicting Direction of Stock Price from Interest Rate and Inflation Rate
 
--   Authors: Allen Lee, Jianhao Zhang, Chengyu Tao, Yi Yan
+-   Authors: Allen Lee, Andy Zhang, Chengyu Tao, Yi Yan
 
 A demo of a data analysis project for DSCI 522 (Data Science workflows); a course in the Master of Data Science program at the University of British Columbia.
 
