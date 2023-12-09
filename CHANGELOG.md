@@ -22,3 +22,7 @@ This file documents changes made based on the peer review.
 - **Discussion of Logistic Regression Model:** Discussion added in terms of the performance of the logistic regression model compared to the dummy regression model. [feedback](https://github.com/UBC-MDS/data-analysis-review-2023/issues/22#issuecomment-1839821694). You can find more details in [commit](https://github.com/UBC-MDS/stock_price_direction_prediction_from_interest_and_inflation_rate/commit/30b876b5b8ca91ce0eb971f5e8bf593193f1338a).
 
 - **Choice of Logistic Regression Model:** Discussion added to support the choice of logistic regression model. [feedback](https://github.com/UBC-MDS/data-analysis-review-2023/issues/22#issuecomment-1841485768). You can find more details in [commit](https://github.com/UBC-MDS/stock_price_direction_prediction_from_interest_and_inflation_rate/commit/0feb2e78938deb0486f46c2264bade6d1e9f14b7).
+
+- **Time series data shuffling explanation:** From milestone 1 feedback, the grader is concerned that we are breaking the golden
+  rule by shuffling a time series then splitting it into train and test set.
+  We believe what we did was fine and we added explanation in this [commit](https://github.com/UBC-MDS/stock_price_direction_prediction_from_interest_and_inflation_rate/commit/6727e46eeb0839acaa85c353a6990a6e0e651e72)
