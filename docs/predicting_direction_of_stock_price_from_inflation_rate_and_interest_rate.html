@@ -354,8 +354,8 @@ document.write(`
   <section id="predicting-direction-of-stock-price-from-interest-rate-and-inflation-rate">
 <h1>Predicting direction of stock price from interest rate and inflation rate<a class="headerlink" href="#predicting-direction-of-stock-price-from-interest-rate-and-inflation-rate" title="Permalink to this heading">#</a></h1>
 <p><em>We utilized logistic regression to analyze the stock price data and provided a predictive model.</em></p>
-<p>by Allan Lee, Andy Zhang, Yi Yan and Chengyu Tao (DSCI 522 Group 3 Milestone 3)</p>
-<p>2023/12/06</p>
+<p>by Allan Lee, Andy Zhang, Yi Yan and Chengyu Tao (DSCI 522 Group 3 Milestone 4)</p>
+<p>2023/12/09</p>
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -647,7 +647,8 @@ document.write(`
 <p><span class="caption-number">Fig. 5 </span><span class="caption-text">Present results of logistic regression model.</span><a class="headerlink" href="#regression-mean-test-score" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The test data of logistic regression yields an precision of <span class="pasted-text">76.1</span>%. Precision is calculated as the number of true positives divided by the sum of true positives and false positives. Nevertheless, caution is necessary when interpreting this metric.</p>
+<p>The test data of logistic regression yields an precision of <span class="pasted-text">   logistic_regression_precision_score (%)
+0                                     76.1</span>%. Precision is calculated as the number of true positives divided by the sum of true positives and false positives. Nevertheless, caution is necessary when interpreting this metric.</p>
 </section>
 <section id="dummy-regression">
 <h2>Dummy Regression<a class="headerlink" href="#dummy-regression" title="Permalink to this heading">#</a></h2>
@@ -699,7 +700,9 @@ document.write(`
 </section>
 <section id="overall">
 <h2>Overall<a class="headerlink" href="#overall" title="Permalink to this heading">#</a></h2>
-<p>The model training is designed such that it follows the Golden Rule, which refers to “despite our utmost concern for test error, it is crucial to emphasize that the training phase must remain completely unaffected by the test data.” The test data of dummy regression yields a precision of <span class="pasted-text">75.93</span>%. The precision of dummy regression is better then the precision of logistic regression. In the preceding examination, we utilize <code class="docutils literal notranslate"><span class="pre">Logistic</span> <span class="pre">Regression</span></code> and <code class="docutils literal notranslate"><span class="pre">Dummy</span> <span class="pre">Regression</span></code>. Consequently, the result does not show advantage of <code class="docutils literal notranslate"><span class="pre">Logistic</span> <span class="pre">Regression</span></code> over <code class="docutils literal notranslate"><span class="pre">Dummy</span> <span class="pre">Regression</span></code>. (see <a class="reference internal" href="#result-df"><span class="std std-numref">Figure 7</span></a>) Further data preprocessing is needed to enhance the overall effectiveness of the model. This is aligned with expectation, because we do not have enough meaningful features to extract information that is helpful for a more accurate categorization. Also, we have imbalanced classes, which can also prevent the model from determining whether the index will grow.</p>
+<p>The model training is designed such that it follows the Golden Rule, which refers to “despite our utmost concern for test error, it is crucial to emphasize that the training phase must remain completely unaffected by the test data.” The test data of dummy regression yields a precision of <span class="pasted-text">   dummy_model_precision_score (%)
+0                            75.93</span>%. The precision of dummy regression is better then the precision of logistic regression. In the preceding examination, we utilize <code class="docutils literal notranslate"><span class="pre">Logistic</span> <span class="pre">Regression</span></code> and <code class="docutils literal notranslate"><span class="pre">Dummy</span> <span class="pre">Regression</span></code>. Consequently, the result does not show advantage of <code class="docutils literal notranslate"><span class="pre">Logistic</span> <span class="pre">Regression</span></code> over <code class="docutils literal notranslate"><span class="pre">Dummy</span> <span class="pre">Regression</span></code>. (see <span class="pasted-text">   dummy_model_precision_score (%)  logistic_regression_precision_score (%)
+0                            75.93                                     76.1</span>%) Further data preprocessing is needed to enhance the overall effectiveness of the model. This is aligned with expectation, because we do not have enough meaningful features to extract information that is helpful for a more accurate categorization. Also, we have imbalanced classes, which can also prevent the model from determining whether the index will grow.</p>
 <p>The model’s performance may be sensitive to hyperparameter settings, therefore it can be helpful to improve the model performance to experiment with different configurations through hyperparameter tuning. In the future, to improve the performance of the model, we may want to consult with specialists of finance field to get more key information about the topic. This will allow more features to be added to the data and positively impact the model training.</p>
 <figure class="align-default" id="result-df">
 <div class="output text_html"><div>
