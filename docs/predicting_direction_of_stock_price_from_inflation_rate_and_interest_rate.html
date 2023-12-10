@@ -307,40 +307,39 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Predicting direction of stock price from interest rate and inflation rate</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remarks">Remarks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-data-from-web">Read Data From Web</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#columns">columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remarks">Remarks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-data-from-web">Read Data From Web</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#columns">Columns</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-splitting-and-shuffling">Data Splitting and Shuffling</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis">Exploratory Data Analysis</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-plots-of-features">Time Series Plots of Features</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms-of-features">Histograms of Features</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplots-of-feature-pairs">Scatterplots of Feature Pairs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis">Exploratory Data Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-plots-of-features">Time Series Plots of Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms-of-features">Histograms of Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplots-of-feature-pairs">Scatterplots of Feature Pairs</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#model">Model</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-data">Preprocessing Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression">Logistic Regression</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dummy-regression">Dummy Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model">Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-data">Preprocessing Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression">Logistic Regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dummy-regression">Dummy Regression</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#possible-reasons-for-worse-performance-of-the-logistic-regression-model-over-dummy-model">Possible Reasons for Worse Performance of the Logistic Regression Model over Dummy Model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-of-picking-the-logistic-regression-model">Motivation of Picking the Logistic Regression Model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overall">Overall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#possible-reasons-for-worse-performance-of-the-logistic-regression-model-over-dummy-model">Possible Reasons for Worse Performance of the Logistic Regression Model over Dummy Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-of-picking-the-logistic-regression-model">Motivation of Picking the Logistic Regression Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall">Overall</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -351,7 +350,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="predicting-direction-of-stock-price-from-interest-rate-and-inflation-rate">
+  <section class="tex2jax_ignore mathjax_ignore" id="predicting-direction-of-stock-price-from-interest-rate-and-inflation-rate">
 <h1>Predicting direction of stock price from interest rate and inflation rate<a class="headerlink" href="#predicting-direction-of-stock-price-from-interest-rate-and-inflation-rate" title="Permalink to this heading">#</a></h1>
 <p><em>We utilized logistic regression to analyze the stock price data and provided a predictive model.</em></p>
 <p>by Allan Lee, Andy Zhang, Yi Yan and Chengyu Tao (DSCI 522 Group 3 Milestone 3)</p>
@@ -360,22 +359,19 @@ document.write(`
 </div>
 <div class="cell tag_remove-input docutils container">
 </div>
-<div class="cell tag_remove-input docutils container">
-</div>
-</section>
 <section id="summary">
-<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
-<p>In our exploration of the impact of inflation and interest rates on stock returns, we employed logistic regression to build a predictive model. The model, trained on data sourced from the S&amp;P500, CPI, and Federal funds rate, exhibited reasonable performance. In the context, we want to make sure every positive prediction is accurate and choose the metric precision which focuses specifically on maximizing the true positive predictions among all the instances predicted as positive.</p>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<p>In our exploration of the impact of inflation and interest rates on stock returns, we employed logistic regression to build a predictive model. The model, trained on data sourced from the S&amp;P500, CPI, and Federal funds rate, exhibited similar performance as a dummy model. In the context, we want to make sure every positive prediction is accurate and choose the metric precision which focuses specifically on maximizing the true positive predictions among all the instances predicted as positive.</p>
 <p>Utilizing Python and packages such as Numpy, Pandas, Altair, and Scikit-learn, our analysis incorporated data preprocessing to address variations in sampling frequencies among S&amp;P500 index, CPI, and interest rate data. Resampling to the last day of every month and filtering noise through monthly median calculations were crucial steps in preparing the data for effective analysis.</p>
 </section>
 <section id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
-<p>In the context of the current financial landscape shaped by the COVID-19 pandemic, central banks globally responded by lowering interest rates to mitigate economic challenges. However, this led to heightened inflation due to increased consumer spending. In an effort to regain control and revert to pre-pandemic levels, central banks sharply raised interest rates to the highest point in 15 years. With over 50% of American households owning stocks <span id="id1">[<a class="reference internal" href="#id11" title="The Motley Fool. How many americans own stock? more than you think. 2023. URL: https://www.fool.com/research/how-many-americans-own-stock/.">Fool, 2023</a>]</span>, the team is keen to explore the impact of inflation and interest rates on stock returns. The pivotal question arises: Can we predict profitable outcomes in stock market index investments over a one-year period based on inflation and interest rate data? Recognizing the potential financial and emotional impact of losing investments and related mental health issues, the team prioritizes precision to minimize setbacks and maximize returns.</p>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>During the COVID-19 pandemic, central banks globally responded by lowering interest rates to mitigate economic challenges. However, this led to heightened inflation due to increased consumer spending. In an effort to regain control and revert to pre-pandemic levels, central banks sharply raised interest rates to the highest point in 15 years. With over 50% of American households owning stocks <span id="id1">[<a class="reference internal" href="#id11" title="The Motley Fool. How many americans own stock? more than you think. 2023. URL: https://www.fool.com/research/how-many-americans-own-stock/.">Fool, 2023</a>]</span>, the team is keen to explore the impact of inflation and interest rates on stock returns. The pivotal question arises: Can we predict profitable outcomes in stock market index investments over a one-year period based on inflation and interest rate data? Predicting exact stock prices is challenging, so we simplify the task by transforming it into a binary classification problem predicting whether the stock price will increase or decrease over the next year. Recognizing the potential financial setback and emotional pain of losing investments, the team decided to use precision as metric to measure performance of our model.</p>
 </section>
 <section id="methods">
-<h1>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h1>
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h2>
 <section id="data">
-<h2>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h2>
+<h3>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>We decided to use the Standard &amp; Poors 500 Index (S&amp;P500) as stock market proxy. The index tracks stocks of 500 largest companies in USA. The price of S&amp;P500 is obtained from Yahoo Finance <span id="id2">[<a class="reference internal" href="#id10" title="Yahoo. S&amp;p 500. 2023. URL: https://ca.finance.yahoo.com/quote/%5EGSPCp=%5EGSPC&amp;.tsrc=fin-srch.">Yahoo, 2023</a>]</span>.</p></li>
 <li><p>Inflation data is obtained from calculating the change of consumer price index (CPI) <span id="id3">[<a class="reference internal" href="#id10" title="Yahoo. S&amp;p 500. 2023. URL: https://ca.finance.yahoo.com/quote/%5EGSPCp=%5EGSPC&amp;.tsrc=fin-srch.">Yahoo, 2023</a>]</span>. We obtained United States CPI from the Federal Reserve Economic Data website and computed yearly inflation rate.</p></li>
@@ -384,11 +380,11 @@ document.write(`
 <p>We derived the change in inflation rate and change in interest rate from the data we have as additional feature. We often hear on the news that inflation and interest rate are increasing or decreasing thus we thought these 2 features might provide additional predicting power for our model.</p>
 </section>
 <section id="analysis">
-<h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading">#</a></h2>
+<h3>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading">#</a></h3>
 <p>The Python programming language <span id="id4">[<a class="reference internal" href="#id16" title="Guido Van Rossum, Fred L Drake, and others. Python reference manual. Volume 111. Centrum voor Wiskunde en Informatica Amsterdam, 1995.">Van Rossum <em>et al.</em>, 1995</a>]</span> and the following Python packages were used to perform the analysis:  Numpy <span id="id5">[<a class="reference internal" href="#id12" title="Charles R Harris, K Jarrod Millman, Stéfan J Van Der Walt, Ralf Gommers, Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor, Sebastian Berg, Nathaniel J Smith, and others. Array programming with numpy. Nature, 585(7825):357–362, 2020.">Harris <em>et al.</em>, 2020</a>]</span>, Pandas <span id="id6">[<a class="reference internal" href="#id13" title="Wes McKinney. Data structures for statistical computing in python. In Stéfan van der Walt and Jarrod Millman, editors, Proceedings of the 9th Python in Science Conference, =51 - 56. 2010.">McKinney, 2010</a>]</span>, Altair <span id="id7">[<a class="reference internal" href="#id15" title="Jacob VanderPlas, Brian Granger, Jeffrey Heer, Dominik Moritz, Kanit Wongsuphasawat, Arvind Satyanarayan, Eitan Lees, Ilia Timofeev, Ben Welsh, and Scott Sievert. Altair: interactive statistical visualizations for python. Journal of open source software, 3(32):1057, 2018.">VanderPlas <em>et al.</em>, 2018</a>]</span>, Scikit-learn <span id="id8">[<a class="reference internal" href="#id14" title="Fabian Pedregosa, Gaël Varoquaux, Alexandre Gramfort, Vincent Michel, Bertrand Thirion, Olivier Grisel, Mathieu Blondel, Peter Prettenhofer, Ron Weiss, Vincent Dubourg, and others. Scikit-learn: machine learning in python. the Journal of machine Learning research, 12:2825–2830, 2011.">Pedregosa <em>et al.</em>, 2011</a>]</span>. The code used to perform the EDA and create the report which can be found here: <a class="github reference external" href="https://github.com/UBC-MDS/dsci_522_group_3/tree/main">UBC-MDS/dsci_522_group_3</a>.</p>
 </section>
 <section id="remarks">
-<h2>Remarks<a class="headerlink" href="#remarks" title="Permalink to this heading">#</a></h2>
+<h3>Remarks<a class="headerlink" href="#remarks" title="Permalink to this heading">#</a></h3>
 <p>S&amp;P500 index, CPI, and Interest rate data we obtained have different sampling frequencies. CPI data has the lowest frequency and it is sampled every first day of the month. We decided to resample all data to last day of every month thus it is easy to calculate and interpret year-year and month-month change. Interest rate data was sampled daily and it is noisy. We decided to filter the data by taking monthly median during resampling. The following table summarizes how data preprocessing was done.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -414,10 +410,10 @@ document.write(`
 </table>
 </section>
 <section id="read-data-from-web">
-<h2>Read Data From Web<a class="headerlink" href="#read-data-from-web" title="Permalink to this heading">#</a></h2>
+<h3>Read Data From Web<a class="headerlink" href="#read-data-from-web" title="Permalink to this heading">#</a></h3>
 <p>The desciption of our data is shown below.</p>
 <section id="columns">
-<h3>columns<a class="headerlink" href="#columns" title="Permalink to this heading">#</a></h3>
+<h4>Columns<a class="headerlink" href="#columns" title="Permalink to this heading">#</a></h4>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>column name</p></th>
@@ -451,6 +447,10 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</section>
+<section id="data-splitting-and-shuffling">
+<h4>Data Splitting and Shuffling<a class="headerlink" href="#data-splitting-and-shuffling" title="Permalink to this heading">#</a></h4>
+<p>We have data from 1955 to 2022. The dataframe consists of one target column and multiple feature columns. Every row of the dataframe is an observation with sampling period being 1 month. We will shuffle the data row-wise then split the data into training set and test set. We aim to uncover timeless and universal relationships between our features and the target. For example, maybe stock market index always grows whenever the central bank lowers interest rate irrespective of what happens previously. With the above goal in mind, we believe we do not have data leakage issue even though some observation in the training data may occur after some observation in the test data.</p>
 <figure class="align-default" id="data-head">
 <div class="output text_html"><div>
 <style scoped>
@@ -552,7 +552,7 @@ document.write(`
 </section>
 </section>
 <section id="exploratory-data-analysis">
-<h1>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this heading">#</a></h1>
+<h2>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this heading">#</a></h2>
 <p>In our preliminary analysis, we find out:</p>
 <ul class="simple">
 <li><p>No NA or missing data in dataset</p></li>
@@ -564,7 +564,7 @@ document.write(`
 <code class="docutils literal notranslate"><span class="pre">gspc_prev_year_pct_chg</span></code> are treated as features, and the target is treated as response in this binary classification problem.</p></li>
 </ul>
 <section id="time-series-plots-of-features">
-<h2>Time Series Plots of Features<a class="headerlink" href="#time-series-plots-of-features" title="Permalink to this heading">#</a></h2>
+<h3>Time Series Plots of Features<a class="headerlink" href="#time-series-plots-of-features" title="Permalink to this heading">#</a></h3>
 <p>The visualization of time series may reveal the pattern of data, we plot them as follows.</p>
 <figure class="align-default" id="time-series">
 <a class="reference internal image-reference" href="_images/time.png"><img alt="_images/time.png" src="_images/time.png" style="width: 600px;" /></a>
@@ -574,7 +574,7 @@ document.write(`
 </figure>
 </section>
 <section id="histograms-of-features">
-<h2>Histograms of Features<a class="headerlink" href="#histograms-of-features" title="Permalink to this heading">#</a></h2>
+<h3>Histograms of Features<a class="headerlink" href="#histograms-of-features" title="Permalink to this heading">#</a></h3>
 <p>We plot the histograms to see the range and mode of interesting features.</p>
 <figure class="align-default" id="histogram">
 <a class="reference internal image-reference" href="_images/hist.png"><img alt="_images/hist.png" src="_images/hist.png" style="width: 600px;" /></a>
@@ -584,7 +584,7 @@ document.write(`
 </figure>
 </section>
 <section id="scatterplots-of-feature-pairs">
-<h2>Scatterplots of Feature Pairs<a class="headerlink" href="#scatterplots-of-feature-pairs" title="Permalink to this heading">#</a></h2>
+<h3>Scatterplots of Feature Pairs<a class="headerlink" href="#scatterplots-of-feature-pairs" title="Permalink to this heading">#</a></h3>
 <p>Spearmean’s rank correlation test may reveal some potential correlation, we draw the scatterplots of following feature pairs:</p>
 <p><code class="docutils literal notranslate"><span class="pre">interest_rate_pct</span> <span class="pre">vs</span> <span class="pre">inflation_rate_pct</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">interest_rate_pct_chg</span> <span class="pre">vs</span> <span class="pre">inflation_rate_pct_chg</span></code></p>
@@ -605,14 +605,14 @@ document.write(`
 </section>
 </section>
 <section id="model">
-<h1>Model<a class="headerlink" href="#model" title="Permalink to this heading">#</a></h1>
+<h2>Model<a class="headerlink" href="#model" title="Permalink to this heading">#</a></h2>
 <section id="preprocessing-data">
-<h2>Preprocessing Data<a class="headerlink" href="#preprocessing-data" title="Permalink to this heading">#</a></h2>
+<h3>Preprocessing Data<a class="headerlink" href="#preprocessing-data" title="Permalink to this heading">#</a></h3>
 <p>The dataset comprises records for 808 months, with each row featuring a crucial predictor for the corresponding month. Additionally, it indicates whether there was an increase or decrease in the S&amp;P 500 index, denoted by the values <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <p>We find numeric features are: <code class="docutils literal notranslate"><span class="pre">inflation_rate_pct</span></code>, <code class="docutils literal notranslate"><span class="pre">interest_rate_pct</span></code>, <code class="docutils literal notranslate"><span class="pre">inflation_rate_pct_chg</span></code>, <code class="docutils literal notranslate"><span class="pre">interest_rate_pct_chg</span></code>, <code class="docutils literal notranslate"><span class="pre">gspc_prev_year_pct_chg</span></code>. Since there is no missing values, imputation is not necessary. As the characteristics were exclusively numerical, we utilized a StandardScaler to guarantee the normalization of feature matrix.</p>
 </section>
 <section id="logistic-regression">
-<h2>Logistic Regression<a class="headerlink" href="#logistic-regression" title="Permalink to this heading">#</a></h2>
+<h3>Logistic Regression<a class="headerlink" href="#logistic-regression" title="Permalink to this heading">#</a></h3>
 <p>Predicting exact stock prices is challenging, so we simplify the task by transforming it into a binary classification problem—predicting whether the stock price will increase or decrease. Our focus is on identifying whether there is an increase in the S&amp;P 500 index, making it a binary classification problem. To tackle this, we utilize Logistic Regression.</p>
 <figure class="align-default" id="regression-mean-test-score">
 <div class="output text_html"><div>
@@ -650,7 +650,7 @@ document.write(`
 <p>The test data of logistic regression yields an precision of <span class="pasted-text">76.1</span>%. Precision is calculated as the number of true positives divided by the sum of true positives and false positives. Nevertheless, caution is necessary when interpreting this metric.</p>
 </section>
 <section id="dummy-regression">
-<h2>Dummy Regression<a class="headerlink" href="#dummy-regression" title="Permalink to this heading">#</a></h2>
+<h3>Dummy Regression<a class="headerlink" href="#dummy-regression" title="Permalink to this heading">#</a></h3>
 <figure class="align-default" id="dummy-mean-test-score">
 <div class="output text_html"><div>
 <style scoped>
@@ -687,19 +687,19 @@ document.write(`
 </section>
 </section>
 <section id="discussion">
-<h1>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">#</a></h1>
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this heading">#</a></h2>
 <p>In concluding this report, we express gratitude for the valuable input received from four reviewers and aim to address significant queries in the discussion section.</p>
 <section id="possible-reasons-for-worse-performance-of-the-logistic-regression-model-over-dummy-model">
-<h2>Possible Reasons for Worse Performance of the Logistic Regression Model over Dummy Model<a class="headerlink" href="#possible-reasons-for-worse-performance-of-the-logistic-regression-model-over-dummy-model" title="Permalink to this heading">#</a></h2>
-<p>The quality of the data, including missing values, outliers, or noise, can significantly impact the performance of any predictive model. If the data is noisy or contains irrelevant information, the model’s accuracy may suffer. Stock price movements are influenced by a wide range of factors, and if the model does not have access to relevant information, it may struggle to make accurate predictions.</p>
+<h3>Possible Reasons for Worse Performance of the Logistic Regression Model over Dummy Model<a class="headerlink" href="#possible-reasons-for-worse-performance-of-the-logistic-regression-model-over-dummy-model" title="Permalink to this heading">#</a></h3>
+<p>The quality of the data, including missing values, outliers, or noise, can significantly impact the performance of any predictive model. If the data is noisy or contains irrelevant information, the model’s accuracy may suffer. Stock price movements are influenced by a wide range of factors, and if the model does not have access to relevant information, it may struggle to make accurate predictions. Furthermore, relationship between features and target may be non-linear and we also did not account for feature interaction. Lastly, we did not attempt hyperparameter optimization to imporve performance.</p>
 </section>
 <section id="motivation-of-picking-the-logistic-regression-model">
-<h2>Motivation of Picking the Logistic Regression Model<a class="headerlink" href="#motivation-of-picking-the-logistic-regression-model" title="Permalink to this heading">#</a></h2>
+<h3>Motivation of Picking the Logistic Regression Model<a class="headerlink" href="#motivation-of-picking-the-logistic-regression-model" title="Permalink to this heading">#</a></h3>
 <p>Logistic regression is specifically designed for binary classification problems where the outcome variable is dichotomous, meaning it has two possible classes (e.g., 0 or 1, true or false, positive or negative). The coefficients in logistic regression represent the log-odds of the target variable, making it easy to interpret the impact of each feature on the likelihood of a particular outcome. This interpretability is valuable for understanding the relationships between variables.</p>
 </section>
 <section id="overall">
-<h2>Overall<a class="headerlink" href="#overall" title="Permalink to this heading">#</a></h2>
-<p>The model training is designed such that it follows the Golden Rule, which refers to “despite our utmost concern for test error, it is crucial to emphasize that the training phase must remain completely unaffected by the test data.” The test data of dummy regression yields a precision of <span class="pasted-text">75.93</span>%. The precision of dummy regression is better then the precision of logistic regression. In the preceding examination, we utilize <code class="docutils literal notranslate"><span class="pre">Logistic</span> <span class="pre">Regression</span></code> and <code class="docutils literal notranslate"><span class="pre">Dummy</span> <span class="pre">Regression</span></code>. Consequently, the result does not show advantage of <code class="docutils literal notranslate"><span class="pre">Logistic</span> <span class="pre">Regression</span></code> over <code class="docutils literal notranslate"><span class="pre">Dummy</span> <span class="pre">Regression</span></code>. (see <a class="reference internal" href="#result-df"><span class="std std-numref">Figure 7</span></a>) Further data preprocessing is needed to enhance the overall effectiveness of the model. This is aligned with expectation, because we do not have enough meaningful features to extract information that is helpful for a more accurate categorization. Also, we have imbalanced classes, which can also prevent the model from determining whether the index will grow.</p>
+<h3>Overall<a class="headerlink" href="#overall" title="Permalink to this heading">#</a></h3>
+<p>The test data of dummy regression yields a precision of <span class="pasted-text">75.93</span>%. The precision of dummy regression is better then the precision of logistic regression. In the preceding examination, we utilize <code class="docutils literal notranslate"><span class="pre">Logistic</span> <span class="pre">Regression</span></code> and <code class="docutils literal notranslate"><span class="pre">Dummy</span> <span class="pre">Regression</span></code>. Consequently, the result does not show advantage of <code class="docutils literal notranslate"><span class="pre">Logistic</span> <span class="pre">Regression</span></code> over <code class="docutils literal notranslate"><span class="pre">Dummy</span> <span class="pre">Regression</span></code>. (see <a class="reference internal" href="#result-df"><span class="std std-numref">Figure 7</span></a>) Further data preprocessing is needed to enhance the overall effectiveness of the model. This is aligned with expectation, because we do not have enough meaningful features to extract information that is helpful for a more accurate categorization. Also, we have imbalanced classes, which can also prevent the model from determining whether the index will grow.</p>
 <p>The model’s performance may be sensitive to hyperparameter settings, therefore it can be helpful to improve the model performance to experiment with different configurations through hyperparameter tuning. In the future, to improve the performance of the model, we may want to consult with specialists of finance field to get more key information about the topic. This will allow more features to be added to the data and positively impact the model training.</p>
 <figure class="align-default" id="result-df">
 <div class="output text_html"><div>
@@ -739,7 +739,7 @@ document.write(`
 </section>
 </section>
 <section id="reference">
-<h1>Reference<a class="headerlink" href="#reference" title="Permalink to this heading">#</a></h1>
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this heading">#</a></h2>
 <div class="docutils container" id="id9">
 <dl class="citation">
 <dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id1">Foo23</a></span></dt>
@@ -766,6 +766,7 @@ document.write(`
 </dl>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -776,16 +777,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "conda-env-522Group3-py"
         },
         kernelOptions: {
-            name: "python3",
+            name: "conda-env-522Group3-py",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'conda-env-522Group3-py'</script>
 
                 </article>
               
@@ -812,40 +813,39 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Predicting direction of stock price from interest rate and inflation rate</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remarks">Remarks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-data-from-web">Read Data From Web</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#columns">columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remarks">Remarks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-data-from-web">Read Data From Web</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#columns">Columns</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-splitting-and-shuffling">Data Splitting and Shuffling</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis">Exploratory Data Analysis</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-plots-of-features">Time Series Plots of Features</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms-of-features">Histograms of Features</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplots-of-feature-pairs">Scatterplots of Feature Pairs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis">Exploratory Data Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-plots-of-features">Time Series Plots of Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms-of-features">Histograms of Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplots-of-feature-pairs">Scatterplots of Feature Pairs</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#model">Model</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-data">Preprocessing Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression">Logistic Regression</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dummy-regression">Dummy Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model">Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-data">Preprocessing Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression">Logistic Regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dummy-regression">Dummy Regression</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#possible-reasons-for-worse-performance-of-the-logistic-regression-model-over-dummy-model">Possible Reasons for Worse Performance of the Logistic Regression Model over Dummy Model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-of-picking-the-logistic-regression-model">Motivation of Picking the Logistic Regression Model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overall">Overall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#possible-reasons-for-worse-performance-of-the-logistic-regression-model-over-dummy-model">Possible Reasons for Worse Performance of the Logistic Regression Model over Dummy Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-of-picking-the-logistic-regression-model">Motivation of Picking the Logistic Regression Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall">Overall</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
